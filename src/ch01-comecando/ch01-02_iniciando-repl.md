@@ -3,7 +3,7 @@
 Apenas abra o executável da implementação na linha de comando para entrar no
 REPL (*Read Eval Print Loop*, ou *Laço de Leitura-Interpretação-Escrita*).
 
-Saia com `(quit)` ou `ctrl-d)` (em algumas implementações).
+Saia com `(quit)` ou `ctrl-d` (em algumas implementações).
 
 Eis um exemplo de uma sessão:
 ```
@@ -32,6 +32,6 @@ E então:
 	rlwrap sbcl
 
 Mas nós configuraremos nosso editor para oferecer uma melhor experiência, ao invés
-de trabalhar diretamente neste REPL. Veja [editor-support](#).
+de trabalhar diretamente neste REPL. Veja [Suporte de Editores de Texto](#).
 
 **TODO: subsituir o link acima.**

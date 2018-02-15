@@ -2,7 +2,7 @@
 
 ### com seu gerenciador de pacotes
 
-*Nem-li-nem-lerei*:
+*TL;DR*:
 
 	apt-get install sbcl
 
@@ -37,8 +37,7 @@ e este [pacote Debian para Clozure CL](http://mr.gy/blog/clozure-cl-deb.html).
 * um gerenciador de implementações: torna mais fácil instalar uma implementação de Common Lisp
   (`ros install ecl`), uma exata versão de uma implementação (`ros install sbcl/1.2.0`),
   e mudar para uma implementação padrão (`ros use ecl`);
-* um ambiente de scripting (ajuda a executar Lisp através do shell, obter argumentos de linha de comando,
-  ...);
+* um ambiente de scripting (ajuda a executar Lisp através do shell, obter argumentos de linha de comando, ...);
 * um instalador de scripts;
 * um ambiente para testes (para executar testes, incluindo em plataformas populares de Integração Contínua);
 * uma ferramenta de compilação (para compilar imagens e executáveis de forma portátil).
