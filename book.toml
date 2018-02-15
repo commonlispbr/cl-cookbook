@@ -1,4 +1,6 @@
 [book]
-authors = []
+title        = "The Common Lisp Cookbook (PT-BR)"
+description  = "Tradução para Português Brasileiro do Common Lisp Cookbook (em progresso)"
+authors      = []
 multilingual = false
-src = "src"
+src          = "src"
