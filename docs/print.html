@@ -1,0 +1,511 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <base href="">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme -->
+        
+
+        
+
+        <!-- Fetch Clipboard.js from CDN but have a local fallback -->
+        <script src="https://cdn.jsdelivr.net/clipboard.js/1.6.1/clipboard.min.js"></script>
+        <script>
+            if (typeof Clipboard == 'undefined') {
+                document.write(unescape("%3Cscript src='clipboard.min.js'%3E%3C/script%3E"));
+            }
+        </script>
+
+    </head>
+    <body class="light">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme;
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            document.querySelector('html').classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="about.html"><strong aria-hidden="true">1.</strong> Sobre o Livro</a></li><li><a href="license.html"><strong aria-hidden="true">2.</strong> Licença</a></li><li><a href="ch01-comecando/index.html"><strong aria-hidden="true">3.</strong> Começando</a></li><li><ol class="section"><li><a href="ch01-comecando/ch01-01_instalando.html"><strong aria-hidden="true">3.1.</strong> Instalando uma implementação</a></li><li><a href="ch01-comecando/ch01-02_iniciando-repl.html"><strong aria-hidden="true">3.2.</strong> Iniciando um REPL</a></li><li><a href="ch01-comecando/ch01-03_bibliotecas.html"><strong aria-hidden="true">3.3.</strong> Bibliotecas</a></li><li><ol class="section"><li><a href="ch01-comecando/ch01-04_terminologia.html"><strong aria-hidden="true">3.3.1.</strong> Terminologia</a></li><li><a href="null.html"><strong aria-hidden="true">3.3.2.</strong> Instalando Quicklisp</a></li><li><a href="null.html"><strong aria-hidden="true">3.3.3.</strong> Gerenciamento avançado de dependências</a></li><li><a href="null.html"><strong aria-hidden="true">3.3.4.</strong> Provendo sua própria versão de uma biblioteca; Clonando projetos</a></li><li><a href="null.html"><strong aria-hidden="true">3.3.5.</strong> Como trabalhar com versões locais de bibliotecas</a></li></ol></li><li><a href="null.html"><strong aria-hidden="true">3.4.</strong> Trabalhando com Projetos</a></li><li><ol class="section"><li><a href="null.html"><strong aria-hidden="true">3.4.1.</strong> Criando um novo projeto</a></li><li><a href="null.html"><strong aria-hidden="true">3.4.2.</strong> Como carregar um projeto existente</a></li></ol></li><li><a href="null.html"><strong aria-hidden="true">3.5.</strong> Mais Configurações</a></li><li><a href="null.html"><strong aria-hidden="true">3.6.</strong> Leia Mais</a></li><li><a href="null.html"><strong aria-hidden="true">3.7.</strong> Créditos</a></li></ol></li><li><a href="null.html"><strong aria-hidden="true">4.</strong> Suporte de Editores de Texto</a></li><li><a href="null.html"><strong aria-hidden="true">5.</strong> Estruturas de Dados</a></li><li><a href="null.html"><strong aria-hidden="true">6.</strong> Strings</a></li><li><a href="null.html"><strong aria-hidden="true">7.</strong> Datas e Tempo</a></li><li><a href="null.html"><strong aria-hidden="true">8.</strong> Pattern Matching</a></li><li><a href="null.html"><strong aria-hidden="true">9.</strong> Expressões Regulares</a></li><li><a href="null.html"><strong aria-hidden="true">10.</strong> Funções</a></li><li><a href="null.html"><strong aria-hidden="true">11.</strong> Loop</a></li><li><a href="null.html"><strong aria-hidden="true">12.</strong> Entrada/Saída</a></li><li><a href="null.html"><strong aria-hidden="true">13.</strong> Arquivos e Diretórios</a></li><li><a href="null.html"><strong aria-hidden="true">14.</strong> Erros e manipulação de condições</a></li><li><a href="null.html"><strong aria-hidden="true">15.</strong> Pacotes</a></li><li><a href="null.html"><strong aria-hidden="true">16.</strong> Macros e Backquote</a></li><li><a href="null.html"><strong aria-hidden="true">17.</strong> CLOS (O Common Lisp Object System)</a></li><li><a href="null.html"><strong aria-hidden="true">18.</strong> Fazendo interface com seu SO</a></li><li><a href="null.html"><strong aria-hidden="true">19.</strong> Interfaces de Foreign Function (FFI)</a></li><li><a href="null.html"><strong aria-hidden="true">20.</strong> Threads</a></li><li><a href="null.html"><strong aria-hidden="true">21.</strong> Definindo Sistemas</a></li><li><a href="null.html"><strong aria-hidden="true">22.</strong> Usando a API Win32</a></li><li><a href="null.html"><strong aria-hidden="true">23.</strong> Scripting, Construindo executáveis</a></li><li><a href="null.html"><strong aria-hidden="true">24.</strong> Testes e Integração Contínua</a></li><li><a href="null.html"><strong aria-hidden="true">25.</strong> Web Scraping</a></li><li><a href="null.html"><strong aria-hidden="true">26.</strong> CL21 Experimental</a></li><li><a href="(./null.html"><strong aria-hidden="true">27.</strong> Miscelânea</a></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="submenu">
+                                <li><button class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li><button class="theme" id="rust">Rust</button></li>
+                                <li><button class="theme" id="coal">Coal</button></li>
+                                <li><button class="theme" id="navy">Navy</button></li>
+                                <li><button class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                        </div>
+
+                        <h1 class="menu-title"></h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <blockquote>
+<p><strong>ATENÇÃO: ESTE LIVRO ESTÁ ALTAMENTE INCOMPLETO!</strong>
+O objetivo é prover uma tradução apropriada para o Common Lisp Cookbook
+original, em concordância com o licenciamento e com o texto do mesmo.
+Visite o repositório no GitHub e nos ajude a traduzi-lo.</p>
+</blockquote>
+<a class="header" href="print.html#common-lisp-cookbook" id="common-lisp-cookbook"><h1>Common Lisp Cookbook</h1></a>
+<blockquote>
+<p>Cookbook, subst.
+um livro contendo receitas e outras informações sobre a preparo e cozimento de comida.</p>
+</blockquote>
+<p><em>agora com Lisp extra (e com cobertura de Português do Brasil)</em></p>
+<a class="header" href="print.html#informações" id="informações"><h2>Informações</h2></a>
+<p>Este é um projeto colaborativo focado em prover, para Common Lisp, algo
+similar ao <a href="http://www.oreilly.com/catalog/cookbook/">Perl Cookbook</a>, publicado pela O'Reilly. Mais detalhes
+sobre o que este livro é e o que ele não é podem ser encontrados neste <a href="http://groups.google.com/groups?threadm=m3it9soz3m.fsf%40bird.agharta.de">tópico</a>
+encontrado em <a href="news:comp.lang.lisp">comp.lang.lisp</a>.</p>
+<p>Se você quer contribuir com o CL Cookbook, por favor, envie um pull request ou envie
+um bilhete!</p>
+<p>Sim, estamos falando com você! Precisamos de mais contribuidores - escreva um capítulo
+que está faltando e adicione-o, encontre uma pergunta em aberto e dê uma resposta,
+encontre bugs e reporte-os (se você não tem ideia do que falta mas gostaria de ajudar,
+dê uma olhada no <a href="http://www.oreilly.com/catalog/cookbook/toc.html">índice</a> do Perl Cookbook). Não se preocupe com a formatação,
+apenas envie texto simples se você quiser - cuidaremos disso depois.</p>
+<p>Desde já, obrigado pela sua ajuda!</p>
+<a class="header" href="print.html#notas-dos-tradutores" id="notas-dos-tradutores"><h2>Notas dos tradutores</h2></a>
+<p>Este livro é uma tradução direta, para o Português brasileiro, do <a href="https://lispcookbook.github.io/cl-cookbook/">Common Lisp Cookbook</a>,
+pela comunidade <a href="https://lisp.com.br">Common Lisp Brasil</a>.</p>
+<p>Caso haja erros de tradução ou de Português nestas páginas, você está livre para contribuir
+no mesmo formato provido acima, ou poderá abrir uma issue no repositório desta tradução.</p>
+<p>Nosso foco primário é na pura tradução do Cookbook original, portanto, se você está interessado
+em contribuir com conteúdo novo, por favor, dirija-se ao <a href="https://github.com/LispCookbook/cl-cookbook/">repositório original</a>.</p>
+<a class="header" href="print.html#contribuidores" id="contribuidores"><h2>Contribuidores</h2></a>
+<ul>
+<li>Marco Antoniotti</li>
+<li><a href="mailto:xach@xach.com">Zach Beane</a></li>
+<li>Pierpaolo Bernardi</li>
+<li><a href="mailto:skeptomai@mac.com">Christopher Brown</a></li>
+<li><a href="mailto:brunel@mail.dotcom.fr">Frederic Brunel</a></li>
+<li><a href="mailto:jdcal@yahoo.com">Jeff Caldwell</a></li>
+<li><a href="mailto:bill_clementson@yahoo.com">Bill Clementson</a></li>
+<li>Martin Cracauer</li>
+<li><a href="mailto:gdoussot@yahoo.com">Gerald Doussot</a></li>
+<li><a href="mailto:mycroft@actrix.gen.nz">Paul Foley</a></li>
+<li>Jörg-Cyril Höhle</li>
+<li><a href="mailto:ndl@ravenbrook.com">Nick Levine</a></li>
+<li><a href="mailto:shout@ozten.com">Austin King</a></li>
+<li><a href="mailto:mal@wyrd.be">Lieven Marchand</a></li>
+<li><a href="mailto:drew.mcdermott@yale.edu">Drew McDermott</a></li>
+<li><a href="mailto:reti@ai.mit.edu">Kalman Reti</a></li>
+<li><a href="mailto:alb@chip.org">Alberto Riva</a></li>
+<li><a href="mailto:rschlatte@ist.tu-graz.ac.at">Rudi Schlatte</a></li>
+<li><a href="mailto:emres@bilgi.edu.tr">Emre Sevinç</a></li>
+<li>Paul Tarvydas</li>
+<li>Kenny Tilton</li>
+<li><a href="mailto:rurban@x-ray.at">Reini Urban</a></li>
+<li><a href="mailto:matthieu@matthieu-villeneuve.net">Matthieu Villeneuve</a></li>
+<li><a href="mailto:edi@agharta.de">Edi Weitz</a></li>
+<li>Fernando Borretti</li>
+</ul>
+<p>Finalmente, o crédito por finalmente dar a luz ao projeto provavelmente
+vai para &quot;dj_special_ed&quot;, que postou <a href="http://groups.google.com/groups?selm=76be8851.0201222259.70ecbcb1%40posting.google.com">esta mensagem</a> em <a href="news:comp.lang.lisp">comp.lang.lisp</a>.</p>
+<a class="header" href="print.html#tradutores" id="tradutores"><h2>Tradutores</h2></a>
+<ul>
+<li><a href="mailto:lucasvieira@protonmail.com">Lucas Vieira</a></li>
+</ul>
+<a class="header" href="print.html#outros-recursos" id="outros-recursos"><h2>Outros recursos</h2></a>
+<ul>
+<li><a href="http://lisp-lang.org/">lisp-lang.org</a></li>
+<li>A lista <a href="https://github.com/CodyReichert/awesome-cl">Awesome-cl</a></li>
+<li><a href="http://www.lispworks.com/documentation/HyperSpec/Front/index.htm">O Common Lisp HyperSpec</a>, por Kent M. Pitman</li>
+<li><a href="http://phoe.tymoon.eu/clus/doku.php">O Common Lisp UltraSpec</a></li>
+<li><a href="http://www.gigamonkeys.com/book/">Practical Common Lisp</a>, por Peter Seibel</li>
+<li><a href="http://weitz.de/cl-recipes/">Common Lisp Recipes</a> por Edmund Weitz, publicado em 2016</li>
+<li><a href="http://www.cliki.net/">Cliki</a>, a Wiki de Common Lisp</li>
+<li><a href="http://articulate-lisp.com/">Articulate Common Lisp</a>, um tutorial de iniciação para os não-iniciados</li>
+<li><a href="https://en.wikibooks.org/wiki/Common_Lisp">Common Lisp</a> no Wikibooks</li>
+<li><a href="http://www-2.cs.cmu.edu/Groups//AI/html/faqs/lang/lisp/top.html">O velho FAQ do comp.lang.lisp</a>, por Mark Kantrowitz</li>
+<li><a href="http://www-2.cs.cmu.edu/%7Edst/LispBook/">Common Lisp: A Gentle Introduction to Symbolic Computation</a>, por David S. Touretzky</li>
+<li><a href="http://www.psg.com/%7Edlamkins/sl/cover.html">Successful Lisp: How to Understand and Use Common Lisp</a>, por David B. Lamkins</li>
+<li><a href="http://www.paulgraham.com/onlisptext.html">On Lisp</a>, por Paul Graham</li>
+<li><a href="http://www-2.cs.cmu.edu/Groups/AI/html/cltl/cltl2.html">Common Lisp the Language, 2nd Edition</a>, por Guy L. Steele</li>
+<li><a href="http://www.n-a-n-o.com/lisp/cmucl-tutorials/LISP-tutorial.html">Common Lisp Hints</a>, por Geoffrey J. Gordon</li>
+<li><a href="http://www.aiai.ed.ac.uk/%7Ejeff/clos-guide.html">A Guide to CLOS</a>, por Jeff Dalton</li>
+<li><a href="http://www.aiai.ed.ac.uk/%7Ejeff/lisp/cl-pitfalls">Common Lisp Pitfalls</a>, por Jeff Dalton</li>
+<li><a href="http://www.ai.sri.com/%7Epkarp/loop.html">Tutorial para o macro Loop de Common Lisp</a>, por Peter D. Karp</li>
+<li><a href="https://www.cs.umd.edu/%7Enau/cmsc421/norvig-lisp-style.pdf">Um Tutorial para um bom estilo de Lisp</a>, por Peter Norvig e Kent Pitman</li>
+<li><a href="http://www.nicklevine.org/declarative/lectures/">Lisp and Elements of Style</a>, por Nick Levine</li>
+<li><a href="http://www.p-cos.net/lisp/guide.html">Guia Altamente Opinativo de Lisp</a>, de Pascal Constanza</li>
+<li><a href="https://leanpub.com/lovinglisp/">Loving Lisp - the Savy Programmer's Secret Weapon</a>, por Mark Watson</li>
+<li><a href="https://franz.com/">FranzInc</a>, uma empresa que vende soluções em Common Lisp e Bancos de Dados Gráficos.</li>
+</ul>
+<a class="header" href="print.html#licença" id="licença"><h1>Licença</h1></a>
+<blockquote>
+<p>Redistribution and use of the &quot;Common Lisp Cookbook&quot; in its orginal form (HTML)
+or in 'derived' forms (PDF, Postscript, RTF and so forth) with or without
+modification, are permitted provided that the following condition is met:</p>
+<ul>
+<li>Redistributions must reproduce the above copyright notice, this and the
+following disclaimer in the document itself and/or other materials provided
+with the distribution.</li>
+</ul>
+<p><strong>IMPORTANT:</strong> This document is provided by the Common Lisp Cookbook Project &quot;as
+is&quot; and any expressed or implied warranties, including, but not limited to, the
+implied warranties of merchantability and fitness for a particular purpose are
+disclaimed. In no event shall the Common Lisp Cookbook Project be liable for any
+direct, indirect, incidental, special, exemplary, or consequential damages
+(including, but not limited to, procurement of substitute goods or services;
+loss of use, data, or profits; or business interruption) however caused and on
+any theory of liability, whether in contract, strict liability, or tort
+(including negligence or otherwise) arising in any way out of the use of this
+documentation, even if advised of the possibility of such damage.</p>
+<p>LispCookbook GithubGroup addendum: this document is now managed in a modified format.</p>
+<p>Copyright:<br/>
+2015-2017 LispCookbook Github Group<br/>
+2002-2007 The Common Lisp Cookbook Project.</p>
+</blockquote>
+<a class="header" href="print.html#começando" id="começando"><h1>Começando</h1></a>
+<p>Passos simples para instalar um ambiente de desenvolvimento e iniciar um projeto.</p>
+<p>Quer uma instalação em dois-cliques? Então veja o <a href="https://shinmera.github.io/portacle/">Portacle</a>,
+um ambiente <em>portátil e multiplataforma</em> de Common Lisp. Ele inclui Emacs25, SBCL (a implementação),
+Quicklisp (gerenciador de pacotes), Slime (a IDE) e Git. É a forma mais rápida de começar!</p>
+<a class="header" href="print.html#instalando-uma-implementação" id="instalando-uma-implementação"><h2>Instalando uma implementação</h2></a>
+<a class="header" href="print.html#com-seu-gerenciador-de-pacotes" id="com-seu-gerenciador-de-pacotes"><h3>com seu gerenciador de pacotes</h3></a>
+<p><em>Nem-li-nem-lerei</em>:</p>
+<pre><code>apt-get install sbcl
+</code></pre>
+<p>Common Lisp foi padronizado através de um documento ANSI, então ele pode ser implementado de diversas
+formas; veja a <a href="https://en.wikipedia.org/wiki/Common_Lisp#Implementations">lista de implementações da Wikipédia</a>.</p>
+<p>As implementações a seguir são empacotadas para o Debian e provavelmente também para a sua distro:</p>
+<ul>
+<li><a href="http://www.sbcl.org/">SBCL</a></li>
+<li><a href="https://gitlab.com/embeddable-common-lisp/ecl/">ECL</a>
+(compila para C)</li>
+<li><a href="https://gitlab.common-lisp.net/cmucl/cmucl">CMUCL</a></li>
+<li><a href="https://en.wikipedia.org/wiki/GNU_Common_Lisp">GCL</a></li>
+<li><a href="https://clisp.sourceforge.io/">CLISP</a></li>
+</ul>
+<p>Em dúvida, apenas use o SBCL.</p>
+<p>Veja também:</p>
+<ul>
+<li><a href="http://abcl.org/">ABCL</a> (para a JVM),</li>
+<li><a href="https://ccl.clozure.com/">ClozureCL</a></li>
+<li><a href="https://github.com/drmeister/clasp">CLASP</a> (C++ e LLVM)</li>
+<li><a href="https://franz.com/products/allegrocl/">AllegroCL</a> (proprietário)</li>
+<li><a href="http://www.lispworks.com/">LispWorks</a> (proprietário)</li>
+</ul>
+<p>e este <a href="http://mr.gy/blog/clozure-cl-deb.html">pacote Debian para Clozure CL</a>.</p>
+<a class="header" href="print.html#com-roswell" id="com-roswell"><h3>com Roswell</h3></a>
+<p><a href="https://github.com/roswell/roswell/wiki">Roswell</a> é:</p>
+<ul>
+<li>um gerenciador de implementações: torna mais fácil instalar uma implementação de Common Lisp
+(<code>ros install ecl</code>), uma exata versão de uma implementação (<code>ros install sbcl/1.2.0</code>),
+e mudar para uma implementação padrão (<code>ros use ecl</code>);</li>
+<li>um ambiente de scripting (ajuda a executar Lisp através do shell, obter argumentos de linha de comando,
+...);</li>
+<li>um instalador de scripts;</li>
+<li>um ambiente para testes (para executar testes, incluindo em plataformas populares de Integração Contínua);</li>
+<li>uma ferramenta de compilação (para compilar imagens e executáveis de forma portátil).</li>
+</ul>
+<p>Você encontrará diversas formas de instalação na Wiki do Roswell (pacote Debian, instalador Windows,
+Brew/Linux Brew, etc).</p>
+<a class="header" href="print.html#com-docker" id="com-docker"><h3>com Docker</h3></a>
+<p>Se você já conhece o <a href="https://docs.docker.com">Docker</a>, você pode começar a usar Common Lisp rapidamente.
+A imagem <a href="https://github.com/daewok/lisp-devel-docker">daewok/lisp-devel-docker</a> inclui as versões
+recentes de SBCL, CCL, ECL e ABCL, além de Quicklisp instalado na pasta home (<code>/home/lisp</code>) para
+que possamos executar <code>ql:quickload</code> logo de cara.</p>
+<p>Funciona em GNU/Linux, Mac e Windows.</p>
+<p>O comando a seguir baixará a imagem requerida (mais ou menos 400MB), colocará seus arquivos de código
+locais dentro da imagem Docker, onde indicado, e mostrará o REPL do SBCL:</p>
+<pre><code>docker run --rm -it -v /path/to/local/code:/usr/local/share/common-lisp/source daewok/lisp-devel:base sbcl`
+</code></pre>
+<p>Mas nos ainda queremos desenvolver usando Emacs e Slime, então precisamos conectar o Slime ao Lisp dentro do
+Docker. Veja <a href="https://github.com/daewok/slime-docker">slime-docker</a> para uma biblioteca que o ajudará a
+configurar isto.</p>
+<a class="header" href="print.html#iniciando-um-repl" id="iniciando-um-repl"><h2>Iniciando um REPL</h2></a>
+<p>Apenas abra o executável da implementação na linha de comando para entrar no
+REPL (<em>Read Eval Print Loop</em>, ou <em>Laço de Leitura-Interpretação-Escrita</em>).</p>
+<p>Saia com <code>(quit)</code> ou <code>ctrl-d)</code> (em algumas implementações).</p>
+<p>Eis um exemplo de uma sessão:</p>
+<pre><code>user@debian:~$ sbcl
+This is SBCL 1.3.14.debian, an implementation of ANSI Common Lisp.
+More information about SBCL is available at &lt;http://www.sbcl.org/&gt;.
+
+SBCL is free software, provided as is, with absolutely no warranty.
+It is mostly in the public domain; some portions are provided under
+BSD-style licenses.  See the CREDITS and COPYING files in the
+distribution for more information.
+* (+ 1 2)
+
+3
+* (quit)
+user@debian:~$
+</code></pre>
+<p>Você pode melhorar um pouco o REPL (as teclas de setas não funcionam, ele não tem
+um histórico de comandos, ....) com o programa <code>rlwrap</code>:</p>
+<pre><code>apt-get install rlwrap
+</code></pre>
+<p>E então:</p>
+<pre><code>rlwrap sbcl
+</code></pre>
+<p>Mas nós configuraremos nosso editor para oferecer uma melhor experiência, ao invés
+de trabalhar diretamente neste REPL. Veja <a href="#">editor-support</a>.</p>
+<p><strong>TODO: subsituir o link acima.</strong></p>
+<a class="header" href="print.html#bibliotecas" id="bibliotecas"><h1>Bibliotecas</h1></a>
+<p>Common Lisp tem centenas de bibliotecas disponíveis sob uma licença livre de software.
+Veja:</p>
+<ul>
+<li><a href="http://quickdocs.org/">Quickdocs</a> - a biblioteca de documentação para CL.</li>
+<li>A lista <a href="https://github.com/CodyReichert/awesome-cl">Awesome-cl</a>, uma lista curada de bibliotecas.</li>
+<li><a href="http://www.cliki.net/">Cliki</a>, a wiki de Common Lisp.</li>
+</ul>
+<a class="header" href="print.html#terminologia" id="terminologia"><h1>Terminologia</h1></a>
+<ul>
+<li>
+<p>No mundo de Common Lisp, um <strong>pacote</strong> é uma forma de agrupar símbolos
+e prover encapsulamento. É similar a um namespace de C++, um módulo de
+Python ou a um pacote de Java.</p>
+</li>
+<li>
+<p>Um <strong>sistema</strong> é uma coleção de códigos-fonte de CL, agrupados com um
+arquivo .asd que informa como compilá-los e carregá-los. Às vezes, há
+um relacionamento próximo entre sistemas e pacotes, mas isto não é
+algo obrigatório. Um sistema pode declarar uma dependência por outro
+sistema. Sistemas são gerenciados pelo <a href="https://common-lisp.net/project/asdf/asdf.html">ASDF</a>
+(Another System Definition Facility), que oferece funcionalidades similares
+ao make e ao ld.so, e se tornou um padrão.</p>
+</li>
+<li>
+<p>Uma biblioteca ou um projeto de Common Lisp normalmente consiste de um ou
+vários sistemas ASDF (e é distribuído como um projeto Quicklisp).</p>
+</li>
+</ul>
+<a class="header" href="print.html#ops" id="ops"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-1" id="ops-1"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-2" id="ops-2"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-3" id="ops-3"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-4" id="ops-4"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-5" id="ops-5"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-6" id="ops-6"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-7" id="ops-7"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-8" id="ops-8"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-9" id="ops-9"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-10" id="ops-10"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-11" id="ops-11"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-12" id="ops-12"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-13" id="ops-13"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-14" id="ops-14"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-15" id="ops-15"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-16" id="ops-16"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-17" id="ops-17"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-18" id="ops-18"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-19" id="ops-19"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-20" id="ops-20"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-21" id="ops-21"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-22" id="ops-22"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-23" id="ops-23"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-24" id="ops-24"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-25" id="ops-25"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-26" id="ops-26"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-27" id="ops-27"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-28" id="ops-28"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-29" id="ops-29"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-30" id="ops-30"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-31" id="ops-31"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#ops-32" id="ops-32"><h1>OPS....</h1></a>
+<p>Não era para você encontrar esta página.
+Caso você a tenha encontrado, por favor, ajude a traduzir este cookbook.</p>
+<a class="header" href="print.html#miscelânea" id="miscelânea"><h1>Miscelânea</h1></a>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if (getComputedStyle(document.querySelector(".fa")).fontFamily !== "FontAwesome") {
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = '_FontAwesome/css/font-awesome.css';
+                document.head.insertBefore(link, document.head.firstChild)
+            }
+        </script>
+
+        
+
+        
+
+        
+
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                window.print();
+            })
+        </script>
+        
+
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS script -->
+        
+
+    </body>
+</html>
