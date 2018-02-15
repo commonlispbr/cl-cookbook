@@ -1,6 +1,6 @@
 # Lisp Cookbook (PT-BR) [![works badge](https://cdn.rawgit.com/nikku/works-on-my-machine/v0.2.0/badge.svg)](https://github.com/nikku/works-on-my-machine)
 
-Este é um fork do [Common Lisp Cookbook](https://github.com/commonlispbr/cl-cookbook), visando
+Este é um fork do [Common Lisp Cookbook](https://lispcookbook.github.io/cl-cookbook/), visando
 traduzi-lo para o Português do Brasil.
 
 Recomendamos fortemente que você contribua com o projeto original, caso queira algo novo
