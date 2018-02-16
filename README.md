@@ -27,3 +27,6 @@ Não se acanhe em reportar bugs ou criar issues reportando algum problema. É be
 encontrar pessoas que compartilham dos mesmos problemas quando se realiza este procedimento.
 
 
+### Nota
+
+Este site usa [`highlight.js`](https://highlightjs.org/) para auxiliar na renderização de syntax highlighting de código Common Lisp, o que auxilia no trabalho da ferramenta `mdbook`. Exportar utilizando o Makefile deve garantir que não haja problemas.
