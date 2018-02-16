@@ -1,13 +1,17 @@
 > **ATENÇÃO: ESTE LIVRO ESTÁ ALTAMENTE INCOMPLETO!**
 > O objetivo é prover uma tradução apropriada para o Common Lisp Cookbook
 > original, em concordância com o licenciamento e com o texto do mesmo.
-> Visite o repositório no GitHub e nos ajude a traduzi-lo.
+> [Visite o repositório no GitHub](github.com/commonlispbr/cl-cookbook) e nos ajude a traduzi-lo.
 
-# Common Lisp Cookbook
-> Cookbook, subst.
+> **ATENÇÃO: CAPÍTULOS AINDA ESTÃO FALTANDO.**
+> Caso queira consultar informações faltantes, você pode achar o Cookbook original
+> [neste link](https://lispcookbook.github.io/cl-cookbook/).
+
+# The Common Lisp Cookbook (PT-BR)
+> Cookbook, subst.<br/>
 > um livro contendo receitas e outras informações sobre a preparo e cozimento de comida.
 
-*agora com Lisp extra (e com cobertura de Português do Brasil)*
+*agora com Lisp extra (e com cobertura de Português do Brasil!)*
 
 ## Informações
 
@@ -73,7 +77,7 @@ vai para "dj\_special\_ed", que postou [esta mensagem][msg] em [comp.lang.lisp][
 
 ## Tradutores
 
-* [Lucas Vieira](mailto:lucasvieira@protonmail.com)
+* [Lucas Vieira](mailto:lucasvieira@protonmail.com) ([Portfólio](https://luksamuk.github.io))
 
 ## Outros recursos
 
