@@ -1,6 +1,6 @@
-# Lisp Cookbook (PT-BR)
+# Lisp Cookbook (PT-BR) [![works badge](https://cdn.rawgit.com/nikku/works-on-my-machine/v0.2.0/badge.svg)](https://github.com/nikku/works-on-my-machine)
 
-Este é um fork do [Common Lisp Cookbook](https://github.com/commonlispbr/cl-cookbook), visando
+Este é um fork do [Common Lisp Cookbook](https://lispcookbook.github.io/cl-cookbook/), visando
 traduzi-lo para o Português do Brasil.
 
 Recomendamos fortemente que você contribua com o projeto original, caso queira algo novo
@@ -27,3 +27,6 @@ Não se acanhe em reportar bugs ou criar issues reportando algum problema. É be
 encontrar pessoas que compartilham dos mesmos problemas quando se realiza este procedimento.
 
 
+### Nota
+
+Este site usa [`highlight.js`](https://highlightjs.org/) para auxiliar na renderização de syntax highlighting de código Common Lisp, o que auxilia no trabalho da ferramenta `mdbook`. Exportar utilizando o Makefile deve garantir que não haja problemas.
