@@ -1,2 +1,0 @@
-* CH01-02
-- Substituir o link ao capítulo de Suporte de Editores de Texto por um link que funcione.
