@@ -1,7 +1,7 @@
 > **ATENÇÃO: ESTE LIVRO ESTÁ ALTAMENTE INCOMPLETO!**
 > O objetivo é prover uma tradução apropriada para o Common Lisp Cookbook
 > original, em concordância com o licenciamento e com o texto do mesmo.
-> [Visite o repositório no GitHub](github.com/commonlispbr/cl-cookbook) e nos ajude a traduzi-lo.
+> [Visite o repositório no GitHub](https://github.com/commonlispbr/cl-cookbook) e nos ajude a traduzi-lo.
 
 > **ATENÇÃO: CAPÍTULOS AINDA ESTÃO FALTANDO.**
 > Caso queira consultar informações faltantes, você pode achar o Cookbook original
