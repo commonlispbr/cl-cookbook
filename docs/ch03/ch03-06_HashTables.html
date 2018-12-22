@@ -1,0 +1,571 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Hash Tables - The Common Lisp Cookbook (PT-BR)</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Tradução para Português Brasileiro do Common Lisp Cookbook (em progresso)">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="../about.html"><strong aria-hidden="true">1.</strong> Sobre o Livro</a></li><li><a href="../license.html"><strong aria-hidden="true">2.</strong> Licença</a></li><li><a href="../ch01/index.html"><strong aria-hidden="true">3.</strong> Começando</a></li><li><ol class="section"><li><a href="../ch01/ch01-01_instalando.html"><strong aria-hidden="true">3.1.</strong> Instalando uma implementação</a></li><li><a href="../ch01/ch01-02_iniciando-repl.html"><strong aria-hidden="true">3.2.</strong> Iniciando um REPL</a></li><li><a href="../ch01/ch01-03_bibliotecas.html"><strong aria-hidden="true">3.3.</strong> Libraries (bibliotecas)</a></li><li><ol class="section"><li><a href="../ch01/ch01-04_terminologia.html"><strong aria-hidden="true">3.3.1.</strong> Terminologia</a></li><li><a href="../ch01/ch01-05_quicklisp.html"><strong aria-hidden="true">3.3.2.</strong> Instalando o Quicklisp</a></li><li><a href="../ch01/ch01-06_bibliotecas.html"><strong aria-hidden="true">3.3.3.</strong> Instalando libraries</a></li><li><a href="../ch01/ch01-07_dependencias.html"><strong aria-hidden="true">3.3.4.</strong> Gerenciamento avançado de dependências</a></li></ol></li><li><a href="../ch01/ch01-08_projetos.html"><strong aria-hidden="true">3.4.</strong> Trabalhando com Projects</a></li><li><ol class="section"><li><a href="../ch01/ch01-09_criando-project.html"><strong aria-hidden="true">3.4.1.</strong> Criando um novo project</a></li><li><a href="../ch01/ch01-10_carregando-project.html"><strong aria-hidden="true">3.4.2.</strong> Como carregar um project existente</a></li><li><a href="../ch01/ch01-11_mais-config.html"><strong aria-hidden="true">3.4.3.</strong> Mais configurações</a></li><li><a href="../ch01/ch01-12_leia-mais.html"><strong aria-hidden="true">3.4.4.</strong> Leia Mais</a></li><li><a href="../ch01/ch01-13_creditos.html"><strong aria-hidden="true">3.4.5.</strong> Créditos</a></li></ol></li></ol></li><li><a href="../ch02/index.html"><strong aria-hidden="true">4.</strong> Suporte de Editores</a></li><li><ol class="section"><li><a href="../ch02/ch02-01_Emacs.html"><strong aria-hidden="true">4.1.</strong> Emacs</a></li><li><a href="../ch02/ch02-02_Vim.html"><strong aria-hidden="true">4.2.</strong> Vim</a></li><li><a href="../ch02/ch02-03_Lem.html"><strong aria-hidden="true">4.3.</strong> Lem</a></li><li><a href="../ch02/ch02-04_Atom.html"><strong aria-hidden="true">4.4.</strong> Atom</a></li><li><a href="../ch02/ch02-05_Sublime.html"><strong aria-hidden="true">4.5.</strong> Sublime Text</a></li><li><a href="../ch02/ch02-06_Notebooks.html"><strong aria-hidden="true">4.6.</strong> Notebooks</a></li><li><a href="../ch02/ch02-07_REPL.html"><strong aria-hidden="true">4.7.</strong> REPLs</a></li><li><a href="../ch02/ch02-08_Outros.html"><strong aria-hidden="true">4.8.</strong> Outros</a></li></ol></li><li><a href="../ch03/index.html"><strong aria-hidden="true">5.</strong> Estruturas de Dados</a></li><li><ol class="section"><li><a href="../ch03/ch03-01_Listas.html"><strong aria-hidden="true">5.1.</strong> Listas</a></li><li><a href="../ch03/ch03-02_Sequencias.html"><strong aria-hidden="true">5.2.</strong> Sequências</a></li><li><a href="../ch03/ch03-03_Sets.html"><strong aria-hidden="true">5.3.</strong> Sets</a></li><li><a href="../ch03/ch03-04_Fset.html"><strong aria-hidden="true">5.4.</strong> Fset</a></li><li><a href="../ch03/ch03-05_Arrays.html"><strong aria-hidden="true">5.5.</strong> Arrays</a></li><li><a href="../ch03/ch03-06_HashTables.html" class="active"><strong aria-hidden="true">5.6.</strong> Hash Tables</a></li><li><a href="../ch03/ch03-07_Alists.html"><strong aria-hidden="true">5.7.</strong> Alists</a></li><li><a href="../ch03/ch03-08_Plist.html"><strong aria-hidden="true">5.8.</strong> Plist</a></li><li><a href="../ch03/ch03-09_Structures.html"><strong aria-hidden="true">5.9.</strong> Structures</a></li><li><a href="../ch03/ch03-10_Tree.html"><strong aria-hidden="true">5.10.</strong> Tree</a></li><li><a href="../ch03/ch03-11_Apendices.html"><strong aria-hidden="true">5.11.</strong> Apêndices</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">The Common Lisp Cookbook (PT-BR)</h1> 
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="#hash-table" id="hash-table"><h2>Hash Table</h2></a>
+<p>Hash Tables são poderosas estruturas de dados, associando chaves com valores
+de uma forma muito eficiente. Hash Tables são preferíveis à association lists
+em casos que performance é essencial, porém introduzem um pouco de overhead,
+o que torna assoc lists melhores caso a quantidade de pares key-value seja baixa.</p>
+<p>Mas às vezes Alists podem ser usadas de forma diferentes:</p>
+<ul>
+<li>podem ser ordenadas</li>
+<li>é possível fazer um push em cons cells que possuem a mesma key,
+remover a primeira e obter uma pilha</li>
+<li>possuem uma representação sã aos olhos humanos</li>
+<li>podem ser fácilmente (de)serializadas</li>
+<li>devido ao RASSOC, chaves e valores em alists são essêncialmente intercâmbiáveis;
+já em hash tables chaves e valores desempenham papéis bem diferentes
+(Veja CLRecipes para mais).</li>
+</ul>
+<a class="header" href="#criando-uma-hash-table" id="criando-uma-hash-table"><h3>Criando uma Hash Table</h3></a>
+<p>Hash Tables são criadas usando a função
+<a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_mk_has.htm"><code>make-hash-table</code></a>.
+Ela não requer argumentos, e o seu argumento mais usado é <code>:test</code>,
+especificando a função usada para testar a equalidade das chaves.</p>
+<p>Se a biblioteca do <a href="http://cl21.org/">cl21</a> for usada, é possível criar a hash table e adicionar elementos ao mesmo tempo com a nova sintáxe do reader <code>#H</code> :</p>
+<pre><code class="language-lisp">(defparameter *my-hash* #H(:name &quot;Eitaro Fukamachi&quot;))
+</code></pre>
+<p>e acessamos um elemento com</p>
+<pre><code class="language-lisp">(getf *my-hash* :name)
+</code></pre>
+<a class="header" href="#obtendo-um-valor-de-uma-hash-table" id="obtendo-um-valor-de-uma-hash-table"><h3>Obtendo um valor de uma Hash Table</h3></a>
+<p>A função
+<a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_gethas.htm"><code>gethash</code></a>
+recebe dois argumentos obrigatórios: uma chave, e uma hash table. E retorna dois valores:
+o valor correspondente à chave na hash table (ou <code>nil</code> se não for encontrado),
+e um boolean indicando se a chave foi encontrada ou não. O segundo valor é necessário,
+já que nil é um valor válido em um par chave-valor, então receber <code>nil</code> como primeiro
+argumento de gethash não significa necessáriamente que a chave não foi encontrada.</p>
+<a class="header" href="#obtendo-uma-chave-que-não-existe-com-um-valor-default" id="obtendo-uma-chave-que-não-existe-com-um-valor-default"><h4>Obtendo uma chave que não existe com um valor default</h4></a>
+<p><code>gethash</code> poossui um terceiro argumento opcional</p>
+<pre><code class="language-lisp">(gethash 'bar *my-hash* &quot;default-bar&quot;)
+;; =&gt; &quot;default-bar&quot;
+;;     NIL
+</code></pre>
+<a class="header" href="#obtendo-todas-as-chaves-ou-todos-os-valores-de-uma-hash-table" id="obtendo-todas-as-chaves-ou-todos-os-valores-de-uma-hash-table"><h4>Obtendo todas as chaves ou todos os valores de uma hash table</h4></a>
+<p>A biblioteca
+<a href="https://common-lisp.net/project/alexandria/draft/alexandria.html">Alexandria</a>
+(em Quicklisp) tem as funções <code>hash-table-keys</code> e <code>hash-table-values</code> com esse propósito.</p>
+<pre><code class="language-lisp">(ql:quickload :alexandria)
+;; […]
+(alexandria:hash-table-keys *my-hash*)
+;; =&gt; (BAR)
+</code></pre>
+<a class="header" href="#adicionando-um-elemento-a-uma-hash-table" id="adicionando-um-elemento-a-uma-hash-table"><h3>Adicionando um elemento a uma Hash Table</h3></a>
+<p>Se deseja adicionar um elemento a uma hash table, você pode usar a função <code>gethash</code>
+para obter os elementos da hash table, em conjunto com
+<a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_setf_.htm"><code>setf</code></a>.</p>
+<pre><code class="language-lisp">CL-USER&gt; (defparameter *my-hash* (make-hash-table))
+*MY-HASH*
+CL-USER&gt; (setf (gethash 'one-entry *my-hash*) &quot;one&quot;)
+&quot;one&quot;
+CL-USER&gt; (setf (gethash 'another-entry *my-hash*) 2/4)
+1/2
+CL-USER&gt; (gethash 'one-entry *my-hash*)
+&quot;one&quot;
+T
+CL-USER&gt; (gethash 'another-entry *my-hash*)
+1/2
+T
+</code></pre>
+<a class="header" href="#testando-a-presença-de-uma-chave-em-uma-hash-table" id="testando-a-presença-de-uma-chave-em-uma-hash-table"><h3>Testando a presença de uma chave em uma Hash Table</h3></a>
+<p>O primeiro valor retornado por <code>gethash</code> é o objeto da hash table associado à chave
+provida por você como argumento a <code>gethash</code>, ou <code>nil</code> caso nenhum valor exista para esta chave.
+Esse valor pode ser usado como um
+<a href="http://www.lispworks.com/documentation/HyperSpec/Body/26_glo_g.htm#generalized_boolean%22%3Egeneralizedboolean">boolean generalizado</a>
+se você deseja testar a existência de chaves.</p>
+<pre><code class="language-lisp">CL-USER&gt; (defparameter *my-hash* (make-hash-table))
+*MY-HASH*
+CL-USER&gt; (setf (gethash 'one-entry *my-hash*) &quot;one&quot;)
+&quot;one&quot;
+CL-USER&gt; (if (gethash 'one-entry *my-hash*)
+           &quot;Key exists&quot;
+           &quot;Key does not exist&quot;)
+&quot;Key exists&quot;
+CL-USER&gt; (if (gethash 'another-entry *my-hash*)
+           &quot;Key exists&quot;
+           &quot;Key does not exist&quot;)
+&quot;Key does not exist&quot;
+</code></pre>
+<p>Mas perceba que isso <em>não</em> funciona caso <code>nil</code> esteja entre os valores que você
+deseja pôr no hash.</p>
+<pre><code class="language-lisp">CL-USER&gt; (setf (gethash 'another-entry *my-hash*) nil)
+NIL
+CL-USER&gt; (if (gethash 'another-entry *my-hash*)
+           &quot;Key exists&quot;
+           &quot;Key does not exist&quot;)
+&quot;Key does not exist&quot;
+</code></pre>
+<p>Neste caso, você deve verificar o <em>segundo</em> valor de retorno de <code>gethash</code>
+que sempre retornará <code>nil</code> se nenhum valor for encontrado, e T caso contrário.</p>
+<pre><code class="language-lisp">CL-USER&gt; (if (nth-value 1 (gethash 'another-entry *my-hash*))
+           &quot;Key exists&quot;
+           &quot;Key does not exist&quot;)
+&quot;Key exists&quot;
+CL-USER&gt; (if (nth-value 1 (gethash 'no-entry *my-hash*))
+           &quot;Key exists&quot;
+           &quot;Key does not exist&quot;)
+&quot;Key does not exist&quot;
+</code></pre>
+<a class="header" href="#deletando-de-uma-hash-table" id="deletando-de-uma-hash-table"><h3>Deletando de uma Hash Table</h3></a>
+<p>Use
+<a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_remhas.htm"><code>remhash</code></a>
+para deletar uma entrada. Tanto a chave quanto seu valor associado serão removidos
+da tabela. <code>remhash</code> retorna T se a entrada existe, e  <code>nil</code> se não.</p>
+<pre><code class="language-lisp">CL-USER&gt; (defparameter *my-hash* (make-hash-table))
+*MY-HASH*
+CL-USER&gt; (setf (gethash 'first-key *my-hash*) 'one)
+ONE
+CL-USER&gt; (gethash 'first-key *my-hash*)
+ONE
+T
+CL-USER&gt; (remhash 'first-key *my-hash*)
+T
+CL-USER&gt; (gethash 'first-key *my-hash*)
+NIL
+NIL
+CL-USER&gt; (gethash 'no-entry *my-hash*)
+NIL
+NIL
+CL-USER&gt; (remhash 'no-entry *my-hash*)
+NIL
+CL-USER&gt; (gethash 'no-entry *my-hash*)
+NIL
+NIL
+</code></pre>
+<a class="header" href="#percorrendo-uma-hash-table" id="percorrendo-uma-hash-table"><h3>Percorrendo uma Hash Table</h3></a>
+<p>Se você deseja realizar uma ação em cada par chave-valor em uma hash table você pode usar:</p>
+<p><a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_maphas.htm"><code>maphash</code></a>
+que itera sobre todas as entradas na tabela. Seu primeiro argumento deve ser
+uma função que aceita <em>dois</em> argumentos, a chave e o valor de cada entrada.</p>
+<p>Perceba que pela natureza das Hash Tables é <em>impossível</em> controlar a ordem em que
+as entradas são providas pela <code>maphash</code> (ou outras funções que percorram hash tables).
+<code>maphash</code> sempre retorna <code>nil</code>.</p>
+<pre><code class="language-lisp">CL-USER&gt; (defparameter *my-hash* (make-hash-table))
+*MY-HASH*
+CL-USER&gt; (setf (gethash 'first-key *my-hash*) 'one)
+ONE
+CL-USER&gt; (setf (gethash 'second-key *my-hash*) 'two)
+TWO
+CL-USER&gt; (setf (gethash 'third-key *my-hash*) nil)
+NIL
+CL-USER&gt; (setf (gethash nil *my-hash*) 'nil-value)
+NIL-VALUE
+CL-USER&gt; (defun print-hash-entry (key value)
+    (format t &quot;The value associated with the key ~S is ~S~%&quot; key value))
+PRINT-HASH-ENTRY
+CL-USER&gt; (maphash #'print-hash-entry *my-hash*)
+The value associated with the key FIRST-KEY is ONE
+The value associated with the key SECOND-KEY is TWO
+The value associated with the key THIRD-KEY is NIL
+The value associated with the key NIL is NIL-VALUE
+</code></pre>
+<p>Também é possível usar
+<a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_w_hash.htm"><code>with-hash-table-iterator</code></a>,
+uma macro que faz do seu primeiro argumento um iterador (usando
+<a href="http://www.lispworks.com/documentation/HyperSpec/Body/s_flet_.htm"><code>macrolet</code></a>)
+que retorna três valores por hash table para cada vez que for invocada - um
+boolean generalizado que é true se uma entrada for retornada, a chave para a entrada,
+e o valor da entrada. Se não houverem mais entradas, apenas o valor é rotornado - <code>nil</code></p>
+<pre><code class="language-lisp">;;; same hash-table as above
+CL-USER&gt; (with-hash-table-iterator (my-iterator *my-hash*)
+           (loop
+              (multiple-value-bind (entry-p key value)
+                  (my-iterator)
+                (if entry-p
+                    (print-hash-entry key value)
+                    (return)))))
+The value associated with the key FIRST-KEY is ONE
+The value associated with the key SECOND-KEY is TWO
+The value associated with the key THIRD-KEY is NIL
+The value associated with the key NIL is NIL-VALUE
+NIL
+</code></pre>
+<p>TODO: Consigo traduzir isso não moisés
+Tome nota da seguinte ressalva do Hyperspec: &quot;Não é especificado o que pode
+acontecer se qualquer estado interior implícito de uma iteração for retornada
+fora da extensão dinamica da form <code>with-hash-table-iterator</code>, como retornar um
+término da form de invocação.</p>
+<p>E sempre existe a opção do <a href="http://www.lispworks.com/documentation/HyperSpec/Body/06_a.htm"><code>loop</code></a>:</p>
+<pre><code class="language-lisp">;;; same hash-table as above
+CL-USER&gt; (loop for key being the hash-keys of *my-hash*
+           do (print key))
+FIRST-KEY
+SECOND-KEY
+THIRD-KEY
+NIL
+NIL
+CL-USER&gt; (loop for key being the hash-keys of *my-hash*
+           using (hash-value value)
+           do (format t &quot;The value associated with the key ~S is ~S~%&quot; key value))
+The value associated with the key FIRST-KEY is ONE
+The value associated with the key SECOND-KEY is TWO
+The value associated with the key THIRD-KEY is NIL
+The value associated with the key NIL is NIL-VALUE
+NIL
+CL-USER&gt; (loop for value being the hash-values of *my-hash*
+           do (print value))
+ONE
+TWO
+NIL
+NIL-VALUE
+NIL
+CL-USER&gt; (loop for value being the hash-values of *my-hash*
+           using (hash-key key)
+           do (format t &quot;~&amp;~A -&gt; ~A&quot; key value))
+FIRST-KEY -&gt; ONE
+SECOND-KEY -&gt; TWO
+THIRD-KEY -&gt; NIL
+NIL -&gt; NIL-VALUE
+NIL
+</code></pre>
+<p>**TODO: Procurar link certo pro cl21
+Por último, existe também o <code>(doeach ((key val) *hash*) ...)</code> de <a href="cl21.htm">cl21</a>.</p>
+<a class="header" href="#percorrendo-chaves-ou-valores" id="percorrendo-chaves-ou-valores"><h4>Percorrendo chaves ou valores</h4></a>
+<p>Para fazer um map pelas chaves ou pelos valores, é possível usar
+<code>maphash-keys</code> e <code>maphash-values</code> de Alexandria.</p>
+<a class="header" href="#contando-as-entradas-em-uma-hash-table" id="contando-as-entradas-em-uma-hash-table"><h3>Contando as entradas em uma Hash Table</h3></a>
+<p>Não é preciso usar seus dedos (rs) - Common Lisp já possui uma função para isso
+<a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_hash_1.htm"><code>hash-table-count</code></a>.</p>
+<pre><code class="language-lisp">CL-USER&gt; (defparameter *my-hash* (make-hash-table))
+*MY-HASH*
+CL-USER&gt; (hash-table-count *my-hash*)
+0
+CL-USER&gt; (setf (gethash 'first *my-hash*) 1)
+1
+CL-USER&gt; (setf (gethash 'second *my-hash*) 2)
+2
+CL-USER&gt; (setf (gethash 'third *my-hash*) 3)
+3
+CL-USER&gt; (hash-table-count *my-hash*)
+3
+CL-USER&gt; (setf (gethash 'second *my-hash*) 'two)
+TWO
+CL-USER&gt; (hash-table-count *my-hash*)
+3
+CL-USER&gt; (clrhash *my-hash*)
+#&lt;EQL hash table, 0 entries {48205F35}&gt;
+CL-USER&gt; (hash-table-count *my-hash*)
+0
+</code></pre>
+<a class="header" href="#problemas-de-performance-tamanho-da-hash-table" id="problemas-de-performance-tamanho-da-hash-table"><h3>Problemas de Performance: Tamanho da Hash Table</h3></a>
+<p>A função <code>make-hash-table</code> possui alguns parâmetros opcionais que controlam o
+tamanho inicial da sua Hash Table e de que forma ela vai crescer, caso preciso.
+Esse pode ser um iimportante problema de performance se você está trabalhando com
+hash tables grandes. Aqui está um exemplo (não muito científico) usando
+<a href="http://www.cons.org/cmucl">CMUCL</a> pre-18d em um sistema Linux:</p>
+<pre><code class="language-lisp">CL-USER&gt; (defparameter *my-hash* (make-hash-table))
+*MY-HASH*
+CL-USER&gt; (hash-table-size *my-hash*)
+65
+CL-USER&gt; (hash-table-rehash-size *my-hash*)
+1.5
+CL-USER&gt; (time (dotimes (n 100000) (setf (gethash n *my-hash*) n)))
+Compiling LAMBDA NIL:
+Compiling Top-Level Form:
+
+Evaluation took:
+  0.27 seconds of real time
+  0.25 seconds of user run time
+  0.02 seconds of system run time
+  0 page faults and
+  8754768 bytes consed.
+NIL
+CL-USER&gt; (time (dotimes (n 100000) (setf (gethash n *my-hash*) n)))
+Compiling LAMBDA NIL:
+Compiling Top-Level Form:
+
+Evaluation took:
+  0.05 seconds of real time
+  0.05 seconds of user run time
+  0.0 seconds of system run time
+  0 page faults and
+  0 bytes consed.
+NIL
+</code></pre>
+<p>Os valores para
+<a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_hash_4.htm"><code>hash-table-size</code></a>
+e para
+<a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_hash_2.htm"><code>hash-table-rehash-size</code></a>
+são dependentes da implementação. No nosso caso, CMUL escolhe um tamanho inicial
+de 65, e vai aumentar o tamanho da tabela em 50% sempre que ela tiver que crescer.
+Vejamos quantas vezes nós vamos ter que redimensionar o tamanho da nossa hash table
+até que ela chegue ao seu tamanho final...</p>
+<pre><code class="language-lisp">CL-USER&gt; (log (/ 100000 65) 1.5)
+18.099062
+CL-USER&gt; (let ((size 65)) (dotimes (n 20) (print (list n size)) (setq size (* 1.5 size))))
+(0 65)
+(1 97.5)
+(2 146.25)
+(3 219.375)
+(4 329.0625)
+(5 493.59375)
+(6 740.3906)
+(7 1110.5859)
+(8 1665.8789)
+(9 2498.8184)
+(10 3748.2275)
+(11 5622.3413)
+(12 8433.512)
+(13 12650.268)
+(14 18975.402)
+(15 28463.104)
+(16 42694.656)
+(17 64041.984)
+(18 96062.98)
+(19 144094.47)
+NIL
+</code></pre>
+<p>Ele teve que crescer 19 vezes até ser grande o suficiente para comportar 100.000 entradas.
+Isto explica o porque de tantos consings e a relativa demora para preencher a tabela.
+Explica também porque a segunda vez foi bem mais rápida -
+a hash table já estava com seu tamanho correto.</p>
+<p>Aqui está uma forma mais rápida de fazer esse redimensionamento:
+Se já soubermos de antemão quão grande a nossa tabela será, nós podemos de cara
+começar com o tamanho exato:</p>
+<pre><code class="language-lisp">CL-USER&gt; (defparameter *my-hash* (make-hash-table :size 100000))
+*MY-HASH*
+CL-USER&gt; (hash-table-size *my-hash*)
+100000
+CL-USER&gt; (time (dotimes (n 100000) (setf (gethash n *my-hash*) n)))
+Compiling LAMBDA NIL:
+Compiling Top-Level Form:
+
+Evaluation took:
+  0.04 seconds of real time
+  0.04 seconds of user run time
+  0.0 seconds of system run time
+  0 page faults and
+  0 bytes consed.
+NIL
+</code></pre>
+<p>Esta forma é obviamente muito mais rápida. Além disso não envolveu consing
+de forma alguma, pois não houve redimensionamento.
+Se não se sabe o tamanho final, mas é possível estimar a taxa de crescimento
+da hash table, pode-se passar este valor para <code>make-hash-table</code>. Ao se passar um
+número inteito especifica-se um crescimento absoluto, já um numero de ponto flutuante
+um crescimento relativo.</p>
+<pre><code class="language-lisp">CL-USER&gt; (defparameter *my-hash* (make-hash-table :rehash-size 100000))
+*MY-HASH*
+CL-USER&gt; (hash-table-size *my-hash*)
+65
+CL-USER&gt; (hash-table-rehash-size *my-hash*)
+100000
+CL-USER&gt; (time (dotimes (n 100000) (setf (gethash n *my-hash*) n)))
+Compiling LAMBDA NIL:
+Compiling Top-Level Form:
+
+Evaluation took:
+  0.07 seconds of real time
+  0.05 seconds of user run time
+  0.01 seconds of system run time
+  0 page faults and
+  2001360 bytes consed.
+NIL
+</code></pre>
+<p>Relativamente rápido (apenas um redimensionamento é necessário) mas com
+muito mais consing, pois quase toda a hash table (tirando os 65 elementos iniciais)
+teve de ser construída durante o loop.</p>
+<p>Note também que você pode especificar o <code>rehash-threshold</code> enquanto cria
+uma nova hash table. E por último, sua implementação pode <em>ignorar completamente</em>
+os valores os valores passados por <code>rehash-size</code> e <code>rehash-threshold</code> ...</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../ch03/ch03-05_Arrays.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../ch03/ch03-07_Alists.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../ch03/ch03-05_Arrays.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../ch03/ch03-07_Alists.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
