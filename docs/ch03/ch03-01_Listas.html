@@ -1,0 +1,403 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Listas - The Common Lisp Cookbook (PT-BR)</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Tradução para Português Brasileiro do Common Lisp Cookbook (em progresso)">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="../about.html"><strong aria-hidden="true">1.</strong> Sobre o Livro</a></li><li><a href="../license.html"><strong aria-hidden="true">2.</strong> Licença</a></li><li><a href="../ch01/index.html"><strong aria-hidden="true">3.</strong> Começando</a></li><li><ol class="section"><li><a href="../ch01/ch01-01_instalando.html"><strong aria-hidden="true">3.1.</strong> Instalando uma implementação</a></li><li><a href="../ch01/ch01-02_iniciando-repl.html"><strong aria-hidden="true">3.2.</strong> Iniciando um REPL</a></li><li><a href="../ch01/ch01-03_bibliotecas.html"><strong aria-hidden="true">3.3.</strong> Libraries (bibliotecas)</a></li><li><ol class="section"><li><a href="../ch01/ch01-04_terminologia.html"><strong aria-hidden="true">3.3.1.</strong> Terminologia</a></li><li><a href="../ch01/ch01-05_quicklisp.html"><strong aria-hidden="true">3.3.2.</strong> Instalando o Quicklisp</a></li><li><a href="../ch01/ch01-06_bibliotecas.html"><strong aria-hidden="true">3.3.3.</strong> Instalando libraries</a></li><li><a href="../ch01/ch01-07_dependencias.html"><strong aria-hidden="true">3.3.4.</strong> Gerenciamento avançado de dependências</a></li></ol></li><li><a href="../ch01/ch01-08_projetos.html"><strong aria-hidden="true">3.4.</strong> Trabalhando com Projects</a></li><li><ol class="section"><li><a href="../ch01/ch01-09_criando-project.html"><strong aria-hidden="true">3.4.1.</strong> Criando um novo project</a></li><li><a href="../ch01/ch01-10_carregando-project.html"><strong aria-hidden="true">3.4.2.</strong> Como carregar um project existente</a></li><li><a href="../ch01/ch01-11_mais-config.html"><strong aria-hidden="true">3.4.3.</strong> Mais configurações</a></li><li><a href="../ch01/ch01-12_leia-mais.html"><strong aria-hidden="true">3.4.4.</strong> Leia Mais</a></li><li><a href="../ch01/ch01-13_creditos.html"><strong aria-hidden="true">3.4.5.</strong> Créditos</a></li></ol></li></ol></li><li><a href="../ch02/index.html"><strong aria-hidden="true">4.</strong> Suporte de Editores</a></li><li><ol class="section"><li><a href="../ch02/ch02-01_Emacs.html"><strong aria-hidden="true">4.1.</strong> Emacs</a></li><li><a href="../ch02/ch02-02_Vim.html"><strong aria-hidden="true">4.2.</strong> Vim</a></li><li><a href="../ch02/ch02-03_Lem.html"><strong aria-hidden="true">4.3.</strong> Lem</a></li><li><a href="../ch02/ch02-04_Atom.html"><strong aria-hidden="true">4.4.</strong> Atom</a></li><li><a href="../ch02/ch02-05_Sublime.html"><strong aria-hidden="true">4.5.</strong> Sublime Text</a></li><li><a href="../ch02/ch02-06_Notebooks.html"><strong aria-hidden="true">4.6.</strong> Notebooks</a></li><li><a href="../ch02/ch02-07_REPL.html"><strong aria-hidden="true">4.7.</strong> REPLs</a></li><li><a href="../ch02/ch02-08_Outros.html"><strong aria-hidden="true">4.8.</strong> Outros</a></li></ol></li><li><a href="../ch03/index.html"><strong aria-hidden="true">5.</strong> Estruturas de Dados</a></li><li><ol class="section"><li><a href="../ch03/ch03-01_Listas.html" class="active"><strong aria-hidden="true">5.1.</strong> Listas</a></li><li><a href="../ch03/ch03-02_Sequencias.html"><strong aria-hidden="true">5.2.</strong> Sequências</a></li><li><a href="../ch03/ch03-03_Sets.html"><strong aria-hidden="true">5.3.</strong> Sets</a></li><li><a href="../ch03/ch03-04_Fset.html"><strong aria-hidden="true">5.4.</strong> Fset</a></li><li><a href="../ch03/ch03-05_Arrays.html"><strong aria-hidden="true">5.5.</strong> Arrays</a></li><li><a href="../ch03/ch03-06_HashTables.html"><strong aria-hidden="true">5.6.</strong> Hash Tables</a></li><li><a href="../ch03/ch03-07_Alists.html"><strong aria-hidden="true">5.7.</strong> Alists</a></li><li><a href="../ch03/ch03-08_Plist.html"><strong aria-hidden="true">5.8.</strong> Plist</a></li><li><a href="../ch03/ch03-09_Structures.html"><strong aria-hidden="true">5.9.</strong> Structures</a></li><li><a href="../ch03/ch03-10_Tree.html"><strong aria-hidden="true">5.10.</strong> Tree</a></li><li><a href="../ch03/ch03-11_Apendices.html"><strong aria-hidden="true">5.11.</strong> Apêndices</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">The Common Lisp Cookbook (PT-BR)</h1> 
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="#listas" id="listas"><h2>Listas</h2></a>
+<a class="header" href="#montando-listas-cons-cells-e-listas" id="montando-listas-cons-cells-e-listas"><h3>Montando listas, Cons cells e listas</h3></a>
+<p><em>Uma lista também é uma sequência, portanto é possível usar as funções abaixo.</em></p>
+<p>Cons cells são os elementos básicos de uma lista. Listas são construídas agrupando-se cons cells.</p>
+<pre><code class="language-lisp">(cons 1 2)
+;; =&gt; (1 . 2) ;; representação com um ponto, um dotted pair.
+</code></pre>
+<p>Assim:</p>
+<pre><code>[o|o]--- 2
+ |
+ 1
+</code></pre>
+<p>Se o <code>cdr</code> da primeira cell for outra cons cell, e se o <code>cdr</code> desta última cons cell for <code>nil</code>,
+uma lista é montada:</p>
+<pre><code class="language-lisp">(cons 1 (cons 2 nil))
+;; =&gt; (1 2)
+</code></pre>
+<p>Mais ou menos assim:</p>
+<pre><code>[o|o]---[o|/]
+ |       |
+ 1       2
+</code></pre>
+<p>(ascii art criada com <a href="https://github.com/cbaggers/draw-cons-tree">draw-cons-tree</a>).</p>
+<p>Percebeu como a lista não foi representada como um dotted pair? O printer entende a convenção.</p>
+<p>Por fim, é possível construir uma lista literal usando <code>list</code>:</p>
+<pre><code class="language-lisp">(list 1 2)
+;; =&gt; (1 2)
+</code></pre>
+<p>ou usando uma aspa simples:</p>
+<pre><code class="language-lisp">'(1 2)
+;; =&gt; (1 2)
+</code></pre>
+<p>que nada mais é do que uma simplificação para a chamada de função <code>(quote (1 2))</code>.</p>
+<a class="header" href="#listas-circulares" id="listas-circulares"><h3>Listas Circulares</h3></a>
+<p>O car ou o cdr de uma cons cell pode referenciar outros objetos,
+incluindo a si mesmo ou a outras cells da mesma lista. Portanto <code>car</code> e <code>cdr</code>
+podem ser usados para definir estruturas de auto-referência, tais como listas circulares.</p>
+<p>Antes de começar a trabalhar com listas circulares, avise ao printer, para que ele
+as reconheça e que não tente imprimir a lista completa setando
+<a href="http://clhs.lisp.se/Body/v_pr_cir.htm">*print-circle*</a>
+para T`:</p>
+<pre><code class="language-lisp">(setf *print-circle* t)
+</code></pre>
+<p>Uma função que modifica uma lista, de forma que o último <code>cdr</code> aponte para o começo
+da lista é:</p>
+<pre><code class="language-lisp">(defun circular! (items)
+  &quot;Modifica o último cdr de uma lista ITEMS, retornando uma lista circular&quot;
+  (setf (cdr (last items)) items))
+(circular! (list 1 2 3))
+;; =&gt; #1=(1 2 3 . #1#)
+
+(fifth (circular! (list 1 2 3)))
+;; =&gt; 2
+</code></pre>
+<p>A função <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_list_l.htm#list-length">list-length</a>
+reconhece uma lista circular, retornando <code>nil</code>.</p>
+<p>O reader também pode criar uma lista circular, usando a notação
+<a href="http://www.lispworks.com/documentation/HyperSpec/Body/02_dho.htm">Sharpsign Equal-Sign</a>
+Um objeto, (como uma lista) pode ser prefixado com <code>#n=</code> onde <code>n</code>
+é um número inteiro decimal sem sinal (um ou mais dígitos).
+O label <code>#n#</code> pode ser depois ser usado para referenciar o objeto na expressão:</p>
+<pre><code class="language-lisp">'#42=(1 2 3 . #42#)
+;; =&gt; #1=(1 2 3 . #1#)
+</code></pre>
+<p>Note que o label dado ao reader (<code>n=42</code>) é descartado após a leitura,
+e que o printer define um novo label (<code>n=1</code>).</p>
+<p>Leitura complementar</p>
+<ul>
+<li><a href="https://letoverlambda.com/index.cl/guest/chap4.html#sec_5">Let over Lambda</a> seção abordando expressões cíclicas</li>
+</ul>
+<a class="header" href="#carcdr-ou-primeiroresto-e-segundo-ao-décimo" id="carcdr-ou-primeiroresto-e-segundo-ao-décimo"><h3>car/cdr ou primeiro/resto (e segundo... ao décimo)</h3></a>
+<pre><code class="language-lisp">(car (cons 1 2)) ;; =&gt; 1
+(cdr (cons 1 2)) ;; =&gt; 2
+(first (cons 1 2)) ;; =&gt; 1
+(first '(1 2 3)) ;; =&gt; 1
+(rest '(1 2 3)) ;; =&gt; (2 3)
+</code></pre>
+<p>É possível atribuir <em>qualquer</em> novo valor usando <code>setf</code></p>
+<a class="header" href="#last-butlast-nbutlast-optional-n" id="last-butlast-nbutlast-optional-n"><h3>last, butlast, nbutlast (&amp;optional n)</h3></a>
+<p>retorna a última cons cell em uma lista (ou a n-ésima última cons cell).</p>
+<pre><code class="language-lisp">(last '(1 2 3))
+;; =&gt; (3)
+(car (last '(1 2 3)) ) ;; ou (first (last …))
+;; =&gt; 3
+(butlast '(1 2 3))
+;; =&gt; (1 2)
+</code></pre>
+<p>Em <a href="https://common-lisp.net/project/alexandria/draft/alexandria.html#Conses">Alexandria</a>, <code>lastcar</code> é equivalente a <code>(first (last …))</code>:</p>
+<pre><code class="language-lisp">(alexandria:lastcar '(1 2 3))
+;; =&gt; 3
+</code></pre>
+<a class="header" href="#reverse-nreverse" id="reverse-nreverse"><h3>reverse, nreverse</h3></a>
+<p><code>reverse</code> e <code>nreverse</code> retorna uma nova sequência.</p>
+<p><code>nreverse</code> é destrutiva. O N significa <strong>non-consing</strong>, ou seja, não é necessário
+alocar novas cons cells. Ela <em>pode</em> (e na prática, é isso que ela faz)
+reusar e modificar a sequência original:</p>
+<pre><code class="language-lisp">(defparameter mylist '(1 2 3))
+;; =&gt; (1 2 3)
+(reverse mylist)
+;; =&gt; (3 2 1)
+mylist
+;; =&gt; (1 2 3)
+(nreverse mylist)
+;; =&gt; (3 2 1)
+mylist
+;; =&gt; (1) in SBCL but implementation dependant.
+</code></pre>
+<a class="header" href="#append" id="append"><h3>append</h3></a>
+<p><code>append</code> recebe qualquer quantidade de listas como argumento e retorna uma
+nova lista, contendo os elementos de todos os seus arguments:</p>
+<pre><code class="language-lisp">(append (list 1 2) (list 3 4))
+;; =&gt; (1 2 3 4)
+</code></pre>
+<p>A nova lista compartilha de algumas cons cells com a <code>(3 4)</code>:</p>
+<p>http://gigamonkeys.com/book/figures/after-append.png</p>
+<p><strong>Nota</strong>: <code>append</code> em <a href="cl21.htm">cl21</a> é genérica (para listas, strings, vetores e suas abstract-sequence)</p>
+<p><code>nconc</code> é a equivalente reciclável</p>
+<a class="header" href="#push-item-place" id="push-item-place"><h3>push (item, place)</h3></a>
+<p><code>push</code> insere <em>item</em> à lista armazenada em <em>place</em>, guarda a lista resultante em <em>place</em>, e retorna a lista.</p>
+<pre><code class="language-lisp">(defparameter mylist '(1 2 3))
+(push 0 mylist)
+;; =&gt; (0 1 2 3)
+</code></pre>
+<pre><code class="language-lisp">(defparameter x ’(a (b c) d))
+;; =&gt; (A (B C) D)
+(push 5 (cadr x))
+;; =&gt; (5 B C)
+x
+;; =&gt; (A (5 B C) D)
+</code></pre>
+<p><code>push</code> é equivalente a <code>(setf place (cons item place))</code>, porém, as subforms de
+<em>place</em> sofrem eval apenas uma vez, e <em>item</em> tem o eval antes de <em>place</em>.</p>
+<p>Não existe uma função nativa para <strong>adicionar ao fim de uma lista</strong>. Esta é uma operação
+mais custosa (é preciso percorrer toda a lista). Então, se você precisa realizar
+essa operação faça o seguinte:
+Considere utilizar outra esrutura de dados, ou ponha sua lista <code>ao contrário</code> quando necessário.</p>
+<a class="header" href="#pop" id="pop"><h3>pop</h3></a>
+<p>uma operação destrutiva.</p>
+<a class="header" href="#nthcdr-index-list" id="nthcdr-index-list"><h3>nthcdr (index, list)</h3></a>
+<p>Use-a se <code>first</code>, <code>second</code> e todas as outras até <code>tenth</code> não forem o suficiente.</p>
+<a class="header" href="#carcdr-e-composites-cadr-caadr---acessando-listas-dentro-de-listas" id="carcdr-e-composites-cadr-caadr---acessando-listas-dentro-de-listas"><h3>car/cdr e composites (cadr, caadr...) - acessando listas dentro de listas</h3></a>
+<p>Essas fazem sentido quando aplicadas a listas que contém outras listas.</p>
+<pre><code class="language-lisp">(caar (list 1 2 3))                  ==&gt; error
+(caar (list (list 1 2) 3))           ==&gt; 1
+(cadr (list (list 1 2) (list 3 4)))  ==&gt; (3 4)
+(caadr (list (list 1 2) (list 3 4))) ==&gt; 3
+</code></pre>
+<a class="header" href="#destructuring-bind-parameters-list" id="destructuring-bind-parameters-list"><h3>destructuring-bind (parameters*, list)</h3></a>
+<p>Liga os valores do parâmetro à lista de elementos. É possível desestruturar
+árvores, plists, e até mesmo prover defaults.</p>
+<p>Match simples:</p>
+<pre><code class="language-lisp">(destructuring-bind (x y z) (list 1 2 3)
+  (list :x x :y y :z z))
+;; =&gt; (:X 1 :Y 2 :Z 3)
+</code></pre>
+<p>Match dentro de sublistas:</p>
+<pre><code class="language-lisp">(destructuring-bind (x (y1 y2) z) (list 1 (list 2 20) 3)
+  (list :x x :y1 y1 :y2 y2 :z z))
+;; =&gt; (:X 1 :Y1 2 :Y2 20 :Z 3)
+</code></pre>
+<p>A lista de parâmetros pode fazer uso dos parâmetros
+<code>&amp;optional</code>, <code>&amp;rest</code> e <code>&amp;key</code>.</p>
+<pre><code class="language-lisp">(destructuring-bind (x (y1 &amp;optional y2) z) (list 1 (list 2) 3)
+  (list :x x :y1 y1 :y2 y2 :z z))
+;; =&gt; (:X 1 :Y1 2 :Y2 NIL :Z 3)
+</code></pre>
+<pre><code class="language-lisp">(destructuring-bind (&amp;key x y z) (list :z 1 :y 2 :x 3)
+  (list :x x :y y :z z))
+;; =&gt; (:X 3 :Y 2 :Z 1)
+</code></pre>
+<p>O parâmetro <code>&amp;whole</code> está ligado à lista inteira. Ele deve vir à frente
+e pode ser prosseguido por outros parâmetros.</p>
+<pre><code class="language-lisp">(destructuring-bind (&amp;whole whole-list &amp;key x y z) (list :z 1 :y 2 :x 3)
+  (list :x x :y y :z z :whole whole-list))
+;; =&gt; (:X 3 :Y 2 :Z 1 :WHOLE-LIST (:Z 1 :Y 2 :X 3))
+</code></pre>
+<p>Desestruturando uma plist, provendo defaults:</p>
+<p>(exemplo retirado de Common Lisp Recipes, de E. Weitz, Apress, 2016)</p>
+<pre><code class="language-lisp">(destructuring-bind (&amp;key a (b :not-found) c
+                     &amp;allow-other-keys)
+    ’(:c 23 :d &quot;D&quot; :a #\A :foo :whatever)
+  (list a b c))
+;; =&gt; (#\A :NOT-FOUND 23)
+</code></pre>
+<p>** TODO
+If this gives you the will to do pattern matching, see
+<a href="pattern_matching.html">pattern matching</a>.</p>
+<a class="header" href="#predicados-null-listp" id="predicados-null-listp"><h3>Predicados: null, listp</h3></a>
+<p><code>null</code> é equivalente a <code>not</code>, mas é o mais recomendado.</p>
+<p><code>listp</code> veerifica se um objeto é uma cons cell ou nil.</p>
+<p>e predicados de sequência.</p>
+<a class="header" href="#idiff-tailp-list-make-list-fill-revappend-nreconc-consp-atom" id="idiff-tailp-list-make-list-fill-revappend-nreconc-consp-atom"><h3>idiff, tailp, list*, make-list, fill, revappend, nreconc, consp, atom</h3></a>
+<pre><code class="language-lisp">(make-list 3 :initial-element &quot;ta&quot;)
+;; =&gt; (&quot;ta&quot; &quot;ta&quot; &quot;ta&quot;)
+</code></pre>
+<pre><code class="language-lisp">(make-list 3)
+;; =&gt; (NIL NIL NIL)
+(fill * &quot;hello&quot;)
+;; =&gt; (&quot;hello&quot; &quot;hello&quot; &quot;hello&quot;)
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../ch03/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../ch03/ch03-02_Sequencias.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../ch03/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../ch03/ch03-02_Sequencias.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

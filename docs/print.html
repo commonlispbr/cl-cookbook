@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="en" class="sidebar-visible no-js">
     <head>
+        <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>The Common Lisp Cookbook (PT-BR)</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -8,36 +9,34 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        <base href="">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
 
-        <link rel="stylesheet" href="book.css">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
 
-        <link rel="shortcut icon" href="favicon.png">
-
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
+        <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
         <link rel="stylesheet" href="ayu-highlight.css">
 
-        <!-- Custom theme -->
+        <!-- Custom theme stylesheets -->
         
 
         
-
-        <!-- Fetch Clipboard.js from CDN but have a local fallback -->
-        <script src="https://cdn.jsdelivr.net/clipboard.js/1.6.1/clipboard.min.js"></script>
-        <script>
-            if (typeof Clipboard == 'undefined') {
-                document.write(unescape("%3Cscript src='clipboard.min.js'%3E%3C/script%3E"));
-            }
-        </script>
-
     </head>
     <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script type="text/javascript">
             try {
@@ -58,23 +57,25 @@
         <script type="text/javascript">
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
-            if (theme === null || theme === undefined) { theme = 'light'; }
+            if (theme === null || theme === undefined) { theme = default_theme; }
             document.body.className = theme;
-            document.querySelector('html').className = theme;
+            document.querySelector('html').className = theme + ' js';
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script type="text/javascript">
+            var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             }
-            document.querySelector('html').classList.add("sidebar-" + sidebar);
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="about.html"><strong aria-hidden="true">1.</strong> Sobre o Livro</a></li><li><a href="license.html"><strong aria-hidden="true">2.</strong> Licença</a></li><li><a href="ch01/index.html"><strong aria-hidden="true">3.</strong> Começando</a></li><li><ol class="section"><li><a href="ch01/ch01-01_instalando.html"><strong aria-hidden="true">3.1.</strong> Instalando uma implementação</a></li><li><a href="ch01/ch01-02_iniciando-repl.html"><strong aria-hidden="true">3.2.</strong> Iniciando um REPL</a></li><li><a href="ch01/ch01-03_bibliotecas.html"><strong aria-hidden="true">3.3.</strong> Libraries (bibliotecas)</a></li><li><ol class="section"><li><a href="ch01/ch01-04_terminologia.html"><strong aria-hidden="true">3.3.1.</strong> Terminologia</a></li><li><a href="ch01/ch01-05_quicklisp.html"><strong aria-hidden="true">3.3.2.</strong> Instalando o Quicklisp</a></li><li><a href="ch01/ch01-06_bibliotecas.html"><strong aria-hidden="true">3.3.3.</strong> Instalando libraries</a></li><li><a href="ch01/ch01-07_dependencias.html"><strong aria-hidden="true">3.3.4.</strong> Gerenciamento avançado de dependências</a></li></ol></li><li><a href="ch01/ch01-08_projetos.html"><strong aria-hidden="true">3.4.</strong> Trabalhando com Projects</a></li><li><ol class="section"><li><a href="ch01/ch01-09_criando-project.html"><strong aria-hidden="true">3.4.1.</strong> Criando um novo project</a></li><li><a href="ch01/ch01-10_carregando-project.html"><strong aria-hidden="true">3.4.2.</strong> Como carregar um project existente</a></li><li><a href="ch01/ch01-11_mais-config.html"><strong aria-hidden="true">3.4.3.</strong> Mais configurações</a></li><li><a href="ch01/ch01-12_leia-mais.html"><strong aria-hidden="true">3.4.4.</strong> Leia Mais</a></li><li><a href="ch01/ch01-13_creditos.html"><strong aria-hidden="true">3.4.5.</strong> Créditos</a></li></ol></li></ol></li></ol>
+            <ol class="chapter"><li><a href="about.html"><strong aria-hidden="true">1.</strong> Sobre o Livro</a></li><li><a href="license.html"><strong aria-hidden="true">2.</strong> Licença</a></li><li><a href="ch01/index.html"><strong aria-hidden="true">3.</strong> Começando</a></li><li><ol class="section"><li><a href="ch01/ch01-01_instalando.html"><strong aria-hidden="true">3.1.</strong> Instalando uma implementação</a></li><li><a href="ch01/ch01-02_iniciando-repl.html"><strong aria-hidden="true">3.2.</strong> Iniciando um REPL</a></li><li><a href="ch01/ch01-03_bibliotecas.html"><strong aria-hidden="true">3.3.</strong> Libraries (bibliotecas)</a></li><li><ol class="section"><li><a href="ch01/ch01-04_terminologia.html"><strong aria-hidden="true">3.3.1.</strong> Terminologia</a></li><li><a href="ch01/ch01-05_quicklisp.html"><strong aria-hidden="true">3.3.2.</strong> Instalando o Quicklisp</a></li><li><a href="ch01/ch01-06_bibliotecas.html"><strong aria-hidden="true">3.3.3.</strong> Instalando libraries</a></li><li><a href="ch01/ch01-07_dependencias.html"><strong aria-hidden="true">3.3.4.</strong> Gerenciamento avançado de dependências</a></li></ol></li><li><a href="ch01/ch01-08_projetos.html"><strong aria-hidden="true">3.4.</strong> Trabalhando com Projects</a></li><li><ol class="section"><li><a href="ch01/ch01-09_criando-project.html"><strong aria-hidden="true">3.4.1.</strong> Criando um novo project</a></li><li><a href="ch01/ch01-10_carregando-project.html"><strong aria-hidden="true">3.4.2.</strong> Como carregar um project existente</a></li><li><a href="ch01/ch01-11_mais-config.html"><strong aria-hidden="true">3.4.3.</strong> Mais configurações</a></li><li><a href="ch01/ch01-12_leia-mais.html"><strong aria-hidden="true">3.4.4.</strong> Leia Mais</a></li><li><a href="ch01/ch01-13_creditos.html"><strong aria-hidden="true">3.4.5.</strong> Créditos</a></li></ol></li></ol></li><li><a href="ch02/index.html"><strong aria-hidden="true">4.</strong> Suporte de Editores</a></li><li><ol class="section"><li><a href="ch02/ch02-01_Emacs.html"><strong aria-hidden="true">4.1.</strong> Emacs</a></li><li><a href="ch02/ch02-02_Vim.html"><strong aria-hidden="true">4.2.</strong> Vim</a></li><li><a href="ch02/ch02-03_Lem.html"><strong aria-hidden="true">4.3.</strong> Lem</a></li><li><a href="ch02/ch02-04_Atom.html"><strong aria-hidden="true">4.4.</strong> Atom</a></li><li><a href="ch02/ch02-05_Sublime.html"><strong aria-hidden="true">4.5.</strong> Sublime Text</a></li><li><a href="ch02/ch02-06_Notebooks.html"><strong aria-hidden="true">4.6.</strong> Notebooks</a></li><li><a href="ch02/ch02-07_REPL.html"><strong aria-hidden="true">4.7.</strong> REPLs</a></li><li><a href="ch02/ch02-08_Outros.html"><strong aria-hidden="true">4.8.</strong> Outros</a></li></ol></li><li><a href="ch03/index.html"><strong aria-hidden="true">5.</strong> Estruturas de Dados</a></li><li><ol class="section"><li><a href="ch03/ch03-01_Listas.html"><strong aria-hidden="true">5.1.</strong> Listas</a></li><li><a href="ch03/ch03-02_Sequencias.html"><strong aria-hidden="true">5.2.</strong> Sequências</a></li><li><a href="ch03/ch03-03_Sets.html"><strong aria-hidden="true">5.3.</strong> Sets</a></li><li><a href="ch03/ch03-04_Fset.html"><strong aria-hidden="true">5.4.</strong> Fset</a></li><li><a href="ch03/ch03-05_Arrays.html"><strong aria-hidden="true">5.5.</strong> Arrays</a></li><li><a href="ch03/ch03-06_HashTables.html"><strong aria-hidden="true">5.6.</strong> Hash Tables</a></li><li><a href="ch03/ch03-07_Alists.html"><strong aria-hidden="true">5.7.</strong> Alists</a></li><li><a href="ch03/ch03-08_Plist.html"><strong aria-hidden="true">5.8.</strong> Plist</a></li><li><a href="ch03/ch03-09_Structures.html"><strong aria-hidden="true">5.9.</strong> Structures</a></li><li><a href="ch03/ch03-10_Tree.html"><strong aria-hidden="true">5.10.</strong> Tree</a></li><li><a href="ch03/ch03-11_Apendices.html"><strong aria-hidden="true">5.11.</strong> Apêndices</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -90,24 +91,43 @@
                             <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                                 <i class="fa fa-paint-brush"></i>
                             </button>
-                            <ul id="theme-list" class="theme-popup" aria-label="submenu">
-                                <li><button class="theme" id="light">Light <span class="default">(default)</span></button></li>
-                                <li><button class="theme" id="rust">Rust</button></li>
-                                <li><button class="theme" id="coal">Coal</button></li>
-                                <li><button class="theme" id="navy">Navy</button></li>
-                                <li><button class="theme" id="ayu">Ayu</button></li>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                             </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
                         </div>
 
-                        <h1 class="menu-title">The Common Lisp Cookbook (PT-BR)</h1>
+                        <h1 class="menu-title">The Common Lisp Cookbook (PT-BR)</h1> 
 
                         <div class="right-buttons">
                             <a href="print.html" title="Print this book" aria-label="Print this book">
                                 <i id="print-button" class="fa fa-print"></i>
                             </a>
+                            
                         </div>
                     </div>
                 </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script type="text/javascript">
@@ -131,13 +151,13 @@ original, em concordância com o licenciamento e com o texto do mesmo.
 Caso queira consultar informações faltantes, você pode achar o Cookbook original
 <a href="https://lispcookbook.github.io/cl-cookbook/">neste link</a>.</p>
 </blockquote>
-<a class="header" href="print.html#the-common-lisp-cookbook-pt-br" id="the-common-lisp-cookbook-pt-br"><h1>The Common Lisp Cookbook (PT-BR)</h1></a>
+<a class="header" href="#the-common-lisp-cookbook-pt-br" id="the-common-lisp-cookbook-pt-br"><h1>The Common Lisp Cookbook (PT-BR)</h1></a>
 <blockquote>
 <p>Cookbook, subst.<br/>
 um livro contendo receitas e outras informações sobre a preparo e cozimento de comida.</p>
 </blockquote>
 <p><em>agora com Lisp extra (e com cobertura de Português do Brasil!)</em></p>
-<a class="header" href="print.html#informações" id="informações"><h2>Informações</h2></a>
+<a class="header" href="#informações" id="informações"><h2>Informações</h2></a>
 <p>Este é um projeto colaborativo focado em prover, para Common Lisp, algo
 similar ao <a href="http://www.oreilly.com/catalog/cookbook/">Perl Cookbook</a>, publicado pela O'Reilly. Mais detalhes
 sobre o que este livro é e o que ele não é podem ser encontrados neste <a href="http://groups.google.com/groups?threadm=m3it9soz3m.fsf%40bird.agharta.de">tópico</a>
@@ -150,14 +170,14 @@ encontre bugs e reporte-os (se você não tem ideia do que falta mas gostaria de
 dê uma olhada no <a href="http://www.oreilly.com/catalog/cookbook/toc.html">índice</a> do Perl Cookbook). Não se preocupe com a formatação,
 apenas envie texto simples se você quiser - cuidaremos disso depois.</p>
 <p>Desde já, obrigado pela sua ajuda!</p>
-<a class="header" href="print.html#notas-dos-tradutores" id="notas-dos-tradutores"><h2>Notas dos tradutores</h2></a>
+<a class="header" href="#notas-dos-tradutores" id="notas-dos-tradutores"><h2>Notas dos tradutores</h2></a>
 <p>Este livro é uma tradução direta, para o Português brasileiro, do <a href="https://lispcookbook.github.io/cl-cookbook/">Common Lisp Cookbook</a>,
 pela comunidade <a href="https://lisp.com.br">Common Lisp Brasil</a>.</p>
 <p>Caso haja erros de tradução ou de Português nestas páginas, você está livre para contribuir
 no mesmo formato provido acima, ou poderá abrir uma issue no repositório desta tradução.</p>
 <p>Nosso foco primário é na pura tradução do Cookbook original, portanto, se você está interessado
 em contribuir com conteúdo novo, por favor, dirija-se ao <a href="https://github.com/LispCookbook/cl-cookbook/">repositório original</a>.</p>
-<a class="header" href="print.html#contribuidores" id="contribuidores"><h2>Contribuidores</h2></a>
+<a class="header" href="#contribuidores" id="contribuidores"><h2>Contribuidores</h2></a>
 <ul>
 <li>Marco Antoniotti</li>
 <li><a href="mailto:xach@xach.com">Zach Beane</a></li>
@@ -187,11 +207,11 @@ em contribuir com conteúdo novo, por favor, dirija-se ao <a href="https://githu
 </ul>
 <p>Finalmente, o crédito por finalmente dar a luz ao projeto provavelmente
 vai para &quot;dj_special_ed&quot;, que postou <a href="http://groups.google.com/groups?selm=76be8851.0201222259.70ecbcb1%40posting.google.com">esta mensagem</a> em <a href="news:comp.lang.lisp">comp.lang.lisp</a>.</p>
-<a class="header" href="print.html#tradutores" id="tradutores"><h2>Tradutores</h2></a>
+<a class="header" href="#tradutores" id="tradutores"><h2>Tradutores</h2></a>
 <ul>
 <li><a href="mailto:lucasvieira@protonmail.com">Lucas Vieira</a> (<a href="https://luksamuk.github.io">Portfólio</a>)</li>
 </ul>
-<a class="header" href="print.html#outros-recursos" id="outros-recursos"><h2>Outros recursos</h2></a>
+<a class="header" href="#outros-recursos" id="outros-recursos"><h2>Outros recursos</h2></a>
 <ul>
 <li><a href="http://lisp-lang.org/">lisp-lang.org</a></li>
 <li>A lista <a href="https://github.com/CodyReichert/awesome-cl">Awesome-cl</a></li>
@@ -217,7 +237,7 @@ vai para &quot;dj_special_ed&quot;, que postou <a href="http://groups.google.com
 <li><a href="https://leanpub.com/lovinglisp/">Loving Lisp - the Savy Programmer's Secret Weapon</a>, por Mark Watson</li>
 <li><a href="https://franz.com/">FranzInc</a>, uma empresa que vende soluções em Common Lisp e Bancos de Dados Gráficos.</li>
 </ul>
-<a class="header" href="print.html#licença" id="licença"><h1>Licença</h1></a>
+<a class="header" href="#licença" id="licença"><h1>Licença</h1></a>
 <blockquote>
 <p>Redistribution and use of the &quot;Common Lisp Cookbook&quot; in its orginal form (HTML)
 or in 'derived' forms (PDF, Postscript, RTF and so forth) with or without
@@ -242,13 +262,13 @@ documentation, even if advised of the possibility of such damage.</p>
 2015-2017 LispCookbook Github Group<br/>
 2002-2007 The Common Lisp Cookbook Project.</p>
 </blockquote>
-<a class="header" href="print.html#começando" id="começando"><h1>Começando</h1></a>
+<a class="header" href="#começando" id="começando"><h1>Começando</h1></a>
 <p>Passos simples para instalar um ambiente de desenvolvimento e iniciar um projeto.</p>
 <p>Quer uma instalação em dois-cliques? Então veja o <a href="https://shinmera.github.io/portacle/">Portacle</a>,
 um ambiente <em>portátil e multiplataforma</em> de Common Lisp. Ele inclui Emacs25, SBCL (a implementação),
 Quicklisp (gerenciador de pacotes), Slime (a IDE) e Git. É a forma mais rápida de começar!</p>
-<a class="header" href="print.html#instalando-uma-implementação" id="instalando-uma-implementação"><h2>Instalando uma implementação</h2></a>
-<a class="header" href="print.html#com-seu-gerenciador-de-pacotes" id="com-seu-gerenciador-de-pacotes"><h3>com seu gerenciador de pacotes</h3></a>
+<a class="header" href="#instalando-uma-implementação" id="instalando-uma-implementação"><h2>Instalando uma implementação</h2></a>
+<a class="header" href="#com-seu-gerenciador-de-pacotes" id="com-seu-gerenciador-de-pacotes"><h3>com seu gerenciador de pacotes</h3></a>
 <p><em>TL;DR</em>:</p>
 <pre><code>apt-get install sbcl
 </code></pre>
@@ -273,7 +293,7 @@ formas; veja a <a href="https://en.wikipedia.org/wiki/Common_Lisp#Implementation
 <li><a href="http://www.lispworks.com/">LispWorks</a> (proprietário)</li>
 </ul>
 <p>e este <a href="http://mr.gy/blog/clozure-cl-deb.html">pacote Debian para Clozure CL</a>.</p>
-<a class="header" href="print.html#com-roswell" id="com-roswell"><h3>com Roswell</h3></a>
+<a class="header" href="#com-roswell" id="com-roswell"><h3>com Roswell</h3></a>
 <p><a href="https://github.com/roswell/roswell/wiki">Roswell</a> é:</p>
 <ul>
 <li>um gerenciador de implementações: torna mais fácil instalar uma implementação de Common Lisp
@@ -286,7 +306,7 @@ e mudar para uma implementação padrão (<code>ros use ecl</code>);</li>
 </ul>
 <p>Você encontrará diversas formas de instalação na Wiki do Roswell (pacote Debian, instalador Windows,
 Brew/Linux Brew, etc).</p>
-<a class="header" href="print.html#com-docker" id="com-docker"><h3>com Docker</h3></a>
+<a class="header" href="#com-docker" id="com-docker"><h3>com Docker</h3></a>
 <p>Se você já conhece o <a href="https://docs.docker.com">Docker</a>, você pode começar a usar Common Lisp rapidamente.
 A imagem <a href="https://github.com/daewok/lisp-devel-docker">daewok/lisp-devel-docker</a> inclui as versões
 recentes de SBCL, CCL, ECL e ABCL, além de Quicklisp instalado na pasta home (<code>/home/lisp</code>) para
@@ -299,7 +319,7 @@ locais dentro da imagem Docker, onde indicado, e mostrará o REPL do SBCL:</p>
 <p>Mas nos ainda queremos desenvolver usando Emacs e Slime, então precisamos conectar o Slime ao Lisp dentro do
 Docker. Veja <a href="https://github.com/daewok/slime-docker">slime-docker</a> para uma biblioteca que o ajudará a
 configurar isto.</p>
-<a class="header" href="print.html#iniciando-um-repl" id="iniciando-um-repl"><h2>Iniciando um REPL</h2></a>
+<a class="header" href="#iniciando-um-repl" id="iniciando-um-repl"><h2>Iniciando um REPL</h2></a>
 <p>Apenas abra o executável da implementação na linha de comando para entrar no
 REPL (<em>Read Eval Print Loop</em>, ou <em>Laço de Leitura-Interpretação-Escrita</em>).</p>
 <p>Saia com <code>(quit)</code> ou <code>ctrl-d</code> (em algumas implementações).</p>
@@ -328,7 +348,7 @@ um histórico de comandos, ....) com o programa <code>rlwrap</code>:</p>
 <p>Mas nós configuraremos nosso editor para oferecer uma melhor experiência, ao invés
 de trabalhar diretamente neste REPL. Veja <a href="#">Suporte de Editores de Texto</a>.</p>
 <p><strong>TODO: subsituir o link acima.</strong></p>
-<a class="header" href="print.html#libraries-bibliotecas" id="libraries-bibliotecas"><h1><em>Libraries</em> (Bibliotecas)</h1></a>
+<a class="header" href="#libraries-bibliotecas" id="libraries-bibliotecas"><h1><em>Libraries</em> (Bibliotecas)</h1></a>
 <p>Common Lisp tem centenas de <em>libraries</em> disponíveis sob uma licença livre de software.
 Veja:</p>
 <ul>
@@ -336,7 +356,7 @@ Veja:</p>
 <li>A lista <a href="https://github.com/CodyReichert/awesome-cl">Awesome-cl</a>, uma lista curada de <em>libraries</em>s.</li>
 <li><a href="http://www.cliki.net/">Cliki</a>, a wiki de Common Lisp.</li>
 </ul>
-<a class="header" href="print.html#terminologia" id="terminologia"><h1>Terminologia</h1></a>
+<a class="header" href="#terminologia" id="terminologia"><h1>Terminologia</h1></a>
 <ul>
 <li>
 <p>No mundo de Common Lisp, um <strong>package</strong> (pacote) é uma forma de agrupar símbolos
@@ -357,7 +377,7 @@ ao <em>make</em> e ao <em>ld.so</em>, e se tornou um padrão.</p>
 vários <em>system</em>s ASDF (e é distribuído como um <em>project</em> Quicklisp).</p>
 </li>
 </ul>
-<a class="header" href="print.html#instalando-o-quicklisp" id="instalando-o-quicklisp"><h1>Instalando o Quicklisp</h1></a>
+<a class="header" href="#instalando-o-quicklisp" id="instalando-o-quicklisp"><h1>Instalando o Quicklisp</h1></a>
 <p><a href="https://www.quicklisp.org/beta/">Quicklisp</a> é mais que um gerenciador de pacotes,
 ele também é um repositório central (um <em>dist</em>) que assegura que todas as bibliotecas
 compilem juntas.</p>
@@ -393,7 +413,7 @@ mesmo.</p>
     (when (probe-file quicklisp-init)
       (load quicklisp-init)))
 </code></pre>
-<a class="header" href="print.html#instalando-libraries" id="instalando-libraries"><h1>Instalando <em>libraries</em></h1></a>
+<a class="header" href="#instalando-libraries" id="instalando-libraries"><h1>Instalando <em>libraries</em></h1></a>
 <p>No REPL:</p>
 <pre><code class="language-lisp">(ql:quickload &quot;nome-do-package&quot;)
 </code></pre>
@@ -409,16 +429,16 @@ primeiramente, instalar o pacote <code>cl-ppcre</code>.</p>
 (cl-ppcre:regex-replace &quot;fo+&quot; &quot;foo bar&quot; &quot;frob&quot;)
 </code></pre>
 <p>Veja mais: <a href="https://wiki.debian.org/CommonLisp">https://wiki.debian.org/CommonLisp</a></p>
-<a class="header" href="print.html#gerenciamento-avançado-de-dependências" id="gerenciamento-avançado-de-dependências"><h1>Gerenciamento avançado de dependências</h1></a>
+<a class="header" href="#gerenciamento-avançado-de-dependências" id="gerenciamento-avançado-de-dependências"><h1>Gerenciamento avançado de dependências</h1></a>
 <p>Perceba que estas informações não são necessárias para começar.</p>
 <p>Quicklisp instala as <em>libraries</em> no diretório <code>~/quicklisp/local-projects/</code>.
 Uma <em>library</em> ali instalada estará automaticamente disponível para qualquer projeto.</p>
-<a class="header" href="print.html#fornecendo-sua-própria-versão-de-uma-biblioteca-clonando-projects" id="fornecendo-sua-própria-versão-de-uma-biblioteca-clonando-projects"><h2>Fornecendo sua própria versão de uma biblioteca: Clonando <em>projects</em></h2></a>
+<a class="header" href="#fornecendo-sua-própria-versão-de-uma-biblioteca-clonando-projects" id="fornecendo-sua-própria-versão-de-uma-biblioteca-clonando-projects"><h2>Fornecendo sua própria versão de uma biblioteca: Clonando <em>projects</em></h2></a>
 <p>Dada a propriedade acima, podemos clonar qualquer <em>library</em> para o diretório
 <code>local-projects</code> e ele será encontrado pelo Quicklisp e disponível logo em seguida:</p>
 <pre><code class="language-lisp">(ql:quickload &quot;package&quot;)
 </code></pre>
-<a class="header" href="print.html#como-trabalhar-com-versões-locais-de-libraries" id="como-trabalhar-com-versões-locais-de-libraries"><h2>Como trabalhar com versões locais de <em>libraries</em></h2></a>
+<a class="header" href="#como-trabalhar-com-versões-locais-de-libraries" id="como-trabalhar-com-versões-locais-de-libraries"><h2>Como trabalhar com versões locais de <em>libraries</em></h2></a>
 <p>Se precisarmos de que bibliotecas sejam instaladas localmente, para apenas um projeto,
 ou para facilmente embarcar uma lista de dependências com uma aplicação, podemos utilizar
 o <a href="https://github.com/fukamachi/qlot">Qlot</a>.</p>
@@ -427,13 +447,13 @@ São conjuntos independentes de <em>system</em>s que são exportados do Quicklis
 sem envolvê-lo.</p>
 <p>Por fim, há também o <a href="https://github.com/quicklisp/quicklisp-controller">Quicklisp controller</a>,
 para nos ajudar a construir <em>dists</em>.</p>
-<a class="header" href="print.html#trabalhando-com-projects" id="trabalhando-com-projects"><h1>Trabalhando com <em>Projects</em></h1></a>
+<a class="header" href="#trabalhando-com-projects" id="trabalhando-com-projects"><h1>Trabalhando com <em>Projects</em></h1></a>
 <p>Agora que temos Quicklisp e nosso editor prontos, podemos começar a
 escrever código Lisp em um arquivo e interagir com o REPL.</p>
 <p>Mas, e se quisermos trabalhar com um projeto existente, ou criar um novo?
 Como procedemos, qual a sequência correta de <code>defpackage</code>s, o que colocar
 em um arquivo <code>.asd</code>, e como carregar um projeto no REPL?</p>
-<a class="header" href="print.html#criando-um-novo-project" id="criando-um-novo-project"><h1>Criando um novo <em>project</em></h1></a>
+<a class="header" href="#criando-um-novo-project" id="criando-um-novo-project"><h1>Criando um novo <em>project</em></h1></a>
 <p>Alguns criadores de <em>projects</em> ajudam a criar a estrutura do projeto.
 Gostamos de <a href="https://github.com/fukamachi/cl-project">cl-project</a>, que
 também configura um esqueleto para testes.</p>
@@ -474,7 +494,7 @@ também configura um esqueleto para testes.</p>
 <ul>
 <li>Documentação do ASDF: <a href="https://common-lisp.net/project/asdf/asdf.html#Defining-systems-with-defsystem">definindo um sistema com <code>defsystem</code></a></li>
 </ul>
-<a class="header" href="print.html#como-carregar-um-project-existente" id="como-carregar-um-project-existente"><h1>Como carregar um <em>project</em> existente</h1></a>
+<a class="header" href="#como-carregar-um-project-existente" id="como-carregar-um-project-existente"><h1>Como carregar um <em>project</em> existente</h1></a>
 <p>Você criou seu novo <em>project</em>, ou tem um <em>project</em> existente, e você gostaria de trabalhar com
 ele no REPL, mas o Quicklisp não o conhece. O que fazer?</p>
 <p>Primeiramente, se você criá-lo ou cloná-lo em <code>~/quicklisp/local-projects</code>, você poderá
@@ -483,7 +503,7 @@ ele no REPL, mas o Quicklisp não o conhece. O que fazer?</p>
 <pre><code class="language-lisp">(use-package :my-project)
 </code></pre>
 <p>Por fim, você poderá compilar ou interpretar os códigos-fonte (<code>my-project.lisp</code>) com
-<code>C-c C-k</code> ou <code>C-c C-c</code><sup id="a1"><a href="print.html#f1">1</a></sup> (<em>slime-compile-defun</em>) em um <em>form</em>,
+<code>C-c C-k</code> ou <code>C-c C-c</code><sup id="a1"><a href="#f1">1</a></sup> (<em>slime-compile-defun</em>) em um <em>form</em>,
 e ver seu resultado no REPL.</p>
 <p>Outra solução é usar a lista de <em>projects</em> conhecidos do ASDF:</p>
 <pre><code class="language-lisp">(pushnew &quot;~/caminho/para/raiz/do/projeto/&quot; asdf:*central-registry* :test #'equal)
@@ -491,21 +511,1127 @@ e ver seu resultado no REPL.</p>
 <p>E, já que o ASDF é integrado ao Quicklisp, nós podemos dar <code>quickload</code> no <em>project</em>.</p>
 <p>Feliz hacking!</p>
 <p><b id="f1">1</b> N. do T.: Estes atalhos dizem respeito ao Emacs ou ao Portacle.
-Não se preocupe por ainda não compreendê-los. <a href="print.html#a1">↩</a></p>
-<a class="header" href="print.html#mais-configurações" id="mais-configurações"><h1>Mais configurações</h1></a>
+Não se preocupe por ainda não compreendê-los. <a href="#a1">↩</a></p>
+<a class="header" href="#mais-configurações" id="mais-configurações"><h1>Mais configurações</h1></a>
 <p>Você pode querer definir o formato padrão de codificação do SBCL para UTF-8:</p>
 <pre><code>(setf sb-impl::*default-external-format* :utf-8)
 </code></pre>
 <p>Você pode adicionar isso ao seu <code>~/sbclrc</code>.</p>
-<a class="header" href="print.html#leia-mais" id="leia-mais"><h1>Leia Mais</h1></a>
+<a class="header" href="#leia-mais" id="leia-mais"><h1>Leia Mais</h1></a>
 <ul>
 <li>Organização de código-fonte, <em>libraries</em> e <em>packages</em>: <a href="https://lispmethods.com/libraries.html">https://lispmethods.com/libraries.html</a></li>
 </ul>
-<a class="header" href="print.html#créditos" id="créditos"><h1>Créditos</h1></a>
+<a class="header" href="#créditos" id="créditos"><h1>Créditos</h1></a>
 <ul>
 <li><a href="https://wiki.debian.org/CommonLisp">https://wiki.debian.org/CommonLisp</a></li>
 <li><a href="http://articulate-lisp.com/project/new-project.html">http://articulate-lisp.com/project/new-project.html</a></li>
 </ul>
+<a class="header" href="#suporte-de-editores" id="suporte-de-editores"><h1>Suporte de Editores</h1></a>
+<p>Nosso editor preferido para o desenvolvimento em Common Lisp ainda é o Emacs,
+mas ele não é a única opção.</p>
+<a class="header" href="#emacs" id="emacs"><h2>Emacs</h2></a>
+<p><a href="https://github.com/slime/slime/">SLIME</a> é o Superior Lisp
+Interaction Mode for Emacs. Ele possui suporte para interação com um processo
+de Common Lisp rodando, para compilação, debugging, documentação, etc.
+Funciona com diferentes implementações.</p>
+<p><a href="https://shinmera.github.io/portacle/">Portacle</a> é um ambiente Common Lisp
+multiplatforma e portável (não é preciso instalar binários na máquina).
+Vem com Emacs25, SBCL, Quicklisp, Slime e Git.</p>
+<p><img src="../../assets/portacle.png"
+style="width: 800px"/></p>
+<a class="header" href="#instalando-slime" id="instalando-slime"><h3>Instalando Slime</h3></a>
+<p>Slime está no repositório oficial para pacotes Emacs Lisp, GNU ELPA (do Emacs24 em diante).
+Instale-o com:</p>
+<pre><code>  M-x package-install RET slime RET
+</code></pre>
+<p>Agora você pode rodar Slime com <code>M-x slime</code>.</p>
+<p>Veja também:</p>
+<ul>
+<li>http://wikemacs.org/wiki/SLIME - exemplos de configuração e extensões (em inglês).</li>
+</ul>
+<a class="header" href="#usando-emacs-como-uma-ide" id="usando-emacs-como-uma-ide"><h3>Usando Emacs como uma IDE.</h3></a>
+<p>TODO: WTF? SEPARARAM PQ?
+Veja <a href="emacs-ide.html">&quot;Usando Emacs como uma IDE&quot;</a>.</p>
+<a class="header" href="#configurando-emacs-no-windows-ou-mac" id="configurando-emacs-no-windows-ou-mac"><h3>Configurando Emacs no Windows ou Mac</h3></a>
+<p>Veja <a href="windows.html">&quot;Configurando Emacs no Windows ou Mac&quot;</a>.</p>
+<a class="header" href="#vim" id="vim"><h2>Vim</h2></a>
+<p><a href="http://www.vim.org/scripts/script.php">Slimv</a> é um ambiente Common Lisp completo
+dentro do Vim.</p>
+<p><a href="https://github.com/l04m33/vlime">Vlime</a> um ambiente Common Lisp completo
+para Vim (e Neovim), similar ao SLIME para Emacs e ao SLIMV.</p>
+<p><img src="../../assets/slimv.jpg"
+style="width: 800px"/></p>
+<a class="header" href="#lem" id="lem"><h2>Lem</h2></a>
+<p>Lem é um editor feito para desenvolvimento em Common Lisp. A partir do momento que
+é instalado você pode começar a desenvolver. Sua interfece lembra a do Emacs e SLIME.
+Vem com uma interface em ncurses, bem como um frontend em Electron.</p>
+<p><img src="https://github.com/cxxxr/lem/raw/master/screenshots/terminal.png"
+style="width: 800px"/></p>
+<a class="header" href="#atom" id="atom"><h2>Atom</h2></a>
+<p><a href="https://atom.io/packages/atom-slime">Atom-Slime</a>. Esse pacote permite o desenvolvimento
+interativo de codigo Common Lisp, transformando o Atom em uma completa IDE para Lisp.</p>
+<p><img src="../../assets/atom-slime.png"
+style="width: 800px"/></p>
+<a class="header" href="#sublime-text" id="sublime-text"><h2>Sublime Text</h2></a>
+<p><a href="http://www.sublimetext.com/3">Sublime Text</a> suporta um REPL Lisp e eval de código.</p>
+<p>Você precisa instalar o pacote &quot;SublimeREPL&quot; e então escolher a implementação de CL em
+Tools/SublimeREPL, e então <code>eval</code> o que você quiser.</p>
+<p><img src="../../assets/editor-sublime.png"
+style="width: 800px"/></p>
+<a class="header" href="#notebooks" id="notebooks"><h2>Notebooks</h2></a>
+<p><a href="https://github.com/fredokun/cl-jupyter">cl-jupyter</a> é um kernel Common Lisp para
+notebooks Jupyter.</p>
+<p><a href="https://github.com/tamamu/darkmatter">Darkmatter</a> é um ambiente CL parecido com notebooks.</p>
+<p><img src="https://github.com/tamamu/darkmatter/raw/master/screenshots/screenshot.png"
+style="width: 800px"/></p>
+<a class="header" href="#repls" id="repls"><h2>REPLs</h2></a>
+<p><a href="https://github.com/koji-kojiro/cl-repl">cl-repl</a> é um REPL ipython-like.
+Ele suporta symbol completion, comandos shell e magic, editar comandos em um arquivo
+e um debugger simples.</p>
+<p><img src="../../assets/cl-repl.png"
+style="width: 500px"/></p>
+<a class="header" href="#outros" id="outros"><h2>Outros</h2></a>
+<p>Para reviews de plugins para outros editores, incluindo versões free de editores
+proprietários (como Allegro e Lispworks), veja
+<a href="http://articulate-lisp.com/ides/summary.html">Articulate Common Lisp</a>.</p>
+<a class="header" href="#estruturas-de-dados" id="estruturas-de-dados"><h1>Estruturas de Dados</h1></a>
+<p>Nós esperamos ter aqui uma referência para estruturas de dados comuns. Para apropriadamente
+aprender a linguagem procure ler outras fontes.
+Os seguintes links também podem conter mais detalhes (em inglês):</p>
+<ul>
+<li><a href="http://gigamonkeys.com/book/they-called-it-lisp-for-a-reason-list-processing.html">Practical CL</a>, by Peter Seibel</li>
+<li><a href="http://weitz.de/cl-recipes/">CL Recipes</a>, de E. Weitz, com várias dicas e explicações,</li>
+<li><a href="http://cvberry.com/tech_writings/notes/common_lisp_standard_draft.html">CL standard</a>
+com um bom TOC, referência de funções, extensivas descrições, mais exemplos e
+with a nice TOC, functions reference, extensive descriptions, more
+examples and warnings (i.e: everything).</li>
+<li>a <a href="http://clqr.boundp.org/">Common Lisp quick reference</a></li>
+</ul>
+<p>Nåo deixe de ler o apêndice e se precisar de mais estruturas de dados veja a lista
+<a href="https://github.com/CodyReichert/awesome-cl#data-structures">awesome-cl</a> e também
+<a href="http://quickdocs.org/search?q=data+structure">Quickdocs</a>.</p>
+<a class="header" href="#listas" id="listas"><h2>Listas</h2></a>
+<a class="header" href="#montando-listas-cons-cells-e-listas" id="montando-listas-cons-cells-e-listas"><h3>Montando listas, Cons cells e listas</h3></a>
+<p><em>Uma lista também é uma sequência, portanto é possível usar as funções abaixo.</em></p>
+<p>Cons cells são os elementos básicos de uma lista. Listas são construídas agrupando-se cons cells.</p>
+<pre><code class="language-lisp">(cons 1 2)
+;; =&gt; (1 . 2) ;; representação com um ponto, um dotted pair.
+</code></pre>
+<p>Assim:</p>
+<pre><code>[o|o]--- 2
+ |
+ 1
+</code></pre>
+<p>Se o <code>cdr</code> da primeira cell for outra cons cell, e se o <code>cdr</code> desta última cons cell for <code>nil</code>,
+uma lista é montada:</p>
+<pre><code class="language-lisp">(cons 1 (cons 2 nil))
+;; =&gt; (1 2)
+</code></pre>
+<p>Mais ou menos assim:</p>
+<pre><code>[o|o]---[o|/]
+ |       |
+ 1       2
+</code></pre>
+<p>(ascii art criada com <a href="https://github.com/cbaggers/draw-cons-tree">draw-cons-tree</a>).</p>
+<p>Percebeu como a lista não foi representada como um dotted pair? O printer entende a convenção.</p>
+<p>Por fim, é possível construir uma lista literal usando <code>list</code>:</p>
+<pre><code class="language-lisp">(list 1 2)
+;; =&gt; (1 2)
+</code></pre>
+<p>ou usando uma aspa simples:</p>
+<pre><code class="language-lisp">'(1 2)
+;; =&gt; (1 2)
+</code></pre>
+<p>que nada mais é do que uma simplificação para a chamada de função <code>(quote (1 2))</code>.</p>
+<a class="header" href="#listas-circulares" id="listas-circulares"><h3>Listas Circulares</h3></a>
+<p>O car ou o cdr de uma cons cell pode referenciar outros objetos,
+incluindo a si mesmo ou a outras cells da mesma lista. Portanto <code>car</code> e <code>cdr</code>
+podem ser usados para definir estruturas de auto-referência, tais como listas circulares.</p>
+<p>Antes de começar a trabalhar com listas circulares, avise ao printer, para que ele
+as reconheça e que não tente imprimir a lista completa setando
+<a href="http://clhs.lisp.se/Body/v_pr_cir.htm">*print-circle*</a>
+para T`:</p>
+<pre><code class="language-lisp">(setf *print-circle* t)
+</code></pre>
+<p>Uma função que modifica uma lista, de forma que o último <code>cdr</code> aponte para o começo
+da lista é:</p>
+<pre><code class="language-lisp">(defun circular! (items)
+  &quot;Modifica o último cdr de uma lista ITEMS, retornando uma lista circular&quot;
+  (setf (cdr (last items)) items))
+(circular! (list 1 2 3))
+;; =&gt; #1=(1 2 3 . #1#)
+
+(fifth (circular! (list 1 2 3)))
+;; =&gt; 2
+</code></pre>
+<p>A função <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_list_l.htm#list-length">list-length</a>
+reconhece uma lista circular, retornando <code>nil</code>.</p>
+<p>O reader também pode criar uma lista circular, usando a notação
+<a href="http://www.lispworks.com/documentation/HyperSpec/Body/02_dho.htm">Sharpsign Equal-Sign</a>
+Um objeto, (como uma lista) pode ser prefixado com <code>#n=</code> onde <code>n</code>
+é um número inteiro decimal sem sinal (um ou mais dígitos).
+O label <code>#n#</code> pode ser depois ser usado para referenciar o objeto na expressão:</p>
+<pre><code class="language-lisp">'#42=(1 2 3 . #42#)
+;; =&gt; #1=(1 2 3 . #1#)
+</code></pre>
+<p>Note que o label dado ao reader (<code>n=42</code>) é descartado após a leitura,
+e que o printer define um novo label (<code>n=1</code>).</p>
+<p>Leitura complementar</p>
+<ul>
+<li><a href="https://letoverlambda.com/index.cl/guest/chap4.html#sec_5">Let over Lambda</a> seção abordando expressões cíclicas</li>
+</ul>
+<a class="header" href="#carcdr-ou-primeiroresto-e-segundo-ao-décimo" id="carcdr-ou-primeiroresto-e-segundo-ao-décimo"><h3>car/cdr ou primeiro/resto (e segundo... ao décimo)</h3></a>
+<pre><code class="language-lisp">(car (cons 1 2)) ;; =&gt; 1
+(cdr (cons 1 2)) ;; =&gt; 2
+(first (cons 1 2)) ;; =&gt; 1
+(first '(1 2 3)) ;; =&gt; 1
+(rest '(1 2 3)) ;; =&gt; (2 3)
+</code></pre>
+<p>É possível atribuir <em>qualquer</em> novo valor usando <code>setf</code></p>
+<a class="header" href="#last-butlast-nbutlast-optional-n" id="last-butlast-nbutlast-optional-n"><h3>last, butlast, nbutlast (&amp;optional n)</h3></a>
+<p>retorna a última cons cell em uma lista (ou a n-ésima última cons cell).</p>
+<pre><code class="language-lisp">(last '(1 2 3))
+;; =&gt; (3)
+(car (last '(1 2 3)) ) ;; ou (first (last …))
+;; =&gt; 3
+(butlast '(1 2 3))
+;; =&gt; (1 2)
+</code></pre>
+<p>Em <a href="https://common-lisp.net/project/alexandria/draft/alexandria.html#Conses">Alexandria</a>, <code>lastcar</code> é equivalente a <code>(first (last …))</code>:</p>
+<pre><code class="language-lisp">(alexandria:lastcar '(1 2 3))
+;; =&gt; 3
+</code></pre>
+<a class="header" href="#reverse-nreverse" id="reverse-nreverse"><h3>reverse, nreverse</h3></a>
+<p><code>reverse</code> e <code>nreverse</code> retorna uma nova sequência.</p>
+<p><code>nreverse</code> é destrutiva. O N significa <strong>non-consing</strong>, ou seja, não é necessário
+alocar novas cons cells. Ela <em>pode</em> (e na prática, é isso que ela faz)
+reusar e modificar a sequência original:</p>
+<pre><code class="language-lisp">(defparameter mylist '(1 2 3))
+;; =&gt; (1 2 3)
+(reverse mylist)
+;; =&gt; (3 2 1)
+mylist
+;; =&gt; (1 2 3)
+(nreverse mylist)
+;; =&gt; (3 2 1)
+mylist
+;; =&gt; (1) in SBCL but implementation dependant.
+</code></pre>
+<a class="header" href="#append" id="append"><h3>append</h3></a>
+<p><code>append</code> recebe qualquer quantidade de listas como argumento e retorna uma
+nova lista, contendo os elementos de todos os seus arguments:</p>
+<pre><code class="language-lisp">(append (list 1 2) (list 3 4))
+;; =&gt; (1 2 3 4)
+</code></pre>
+<p>A nova lista compartilha de algumas cons cells com a <code>(3 4)</code>:</p>
+<p>http://gigamonkeys.com/book/figures/after-append.png</p>
+<p><strong>Nota</strong>: <code>append</code> em <a href="cl21.htm">cl21</a> é genérica (para listas, strings, vetores e suas abstract-sequence)</p>
+<p><code>nconc</code> é a equivalente reciclável</p>
+<a class="header" href="#push-item-place" id="push-item-place"><h3>push (item, place)</h3></a>
+<p><code>push</code> insere <em>item</em> à lista armazenada em <em>place</em>, guarda a lista resultante em <em>place</em>, e retorna a lista.</p>
+<pre><code class="language-lisp">(defparameter mylist '(1 2 3))
+(push 0 mylist)
+;; =&gt; (0 1 2 3)
+</code></pre>
+<pre><code class="language-lisp">(defparameter x ’(a (b c) d))
+;; =&gt; (A (B C) D)
+(push 5 (cadr x))
+;; =&gt; (5 B C)
+x
+;; =&gt; (A (5 B C) D)
+</code></pre>
+<p><code>push</code> é equivalente a <code>(setf place (cons item place))</code>, porém, as subforms de
+<em>place</em> sofrem eval apenas uma vez, e <em>item</em> tem o eval antes de <em>place</em>.</p>
+<p>Não existe uma função nativa para <strong>adicionar ao fim de uma lista</strong>. Esta é uma operação
+mais custosa (é preciso percorrer toda a lista). Então, se você precisa realizar
+essa operação faça o seguinte:
+Considere utilizar outra esrutura de dados, ou ponha sua lista <code>ao contrário</code> quando necessário.</p>
+<a class="header" href="#pop" id="pop"><h3>pop</h3></a>
+<p>uma operação destrutiva.</p>
+<a class="header" href="#nthcdr-index-list" id="nthcdr-index-list"><h3>nthcdr (index, list)</h3></a>
+<p>Use-a se <code>first</code>, <code>second</code> e todas as outras até <code>tenth</code> não forem o suficiente.</p>
+<a class="header" href="#carcdr-e-composites-cadr-caadr---acessando-listas-dentro-de-listas" id="carcdr-e-composites-cadr-caadr---acessando-listas-dentro-de-listas"><h3>car/cdr e composites (cadr, caadr...) - acessando listas dentro de listas</h3></a>
+<p>Essas fazem sentido quando aplicadas a listas que contém outras listas.</p>
+<pre><code class="language-lisp">(caar (list 1 2 3))                  ==&gt; error
+(caar (list (list 1 2) 3))           ==&gt; 1
+(cadr (list (list 1 2) (list 3 4)))  ==&gt; (3 4)
+(caadr (list (list 1 2) (list 3 4))) ==&gt; 3
+</code></pre>
+<a class="header" href="#destructuring-bind-parameters-list" id="destructuring-bind-parameters-list"><h3>destructuring-bind (parameters*, list)</h3></a>
+<p>Liga os valores do parâmetro à lista de elementos. É possível desestruturar
+árvores, plists, e até mesmo prover defaults.</p>
+<p>Match simples:</p>
+<pre><code class="language-lisp">(destructuring-bind (x y z) (list 1 2 3)
+  (list :x x :y y :z z))
+;; =&gt; (:X 1 :Y 2 :Z 3)
+</code></pre>
+<p>Match dentro de sublistas:</p>
+<pre><code class="language-lisp">(destructuring-bind (x (y1 y2) z) (list 1 (list 2 20) 3)
+  (list :x x :y1 y1 :y2 y2 :z z))
+;; =&gt; (:X 1 :Y1 2 :Y2 20 :Z 3)
+</code></pre>
+<p>A lista de parâmetros pode fazer uso dos parâmetros
+<code>&amp;optional</code>, <code>&amp;rest</code> e <code>&amp;key</code>.</p>
+<pre><code class="language-lisp">(destructuring-bind (x (y1 &amp;optional y2) z) (list 1 (list 2) 3)
+  (list :x x :y1 y1 :y2 y2 :z z))
+;; =&gt; (:X 1 :Y1 2 :Y2 NIL :Z 3)
+</code></pre>
+<pre><code class="language-lisp">(destructuring-bind (&amp;key x y z) (list :z 1 :y 2 :x 3)
+  (list :x x :y y :z z))
+;; =&gt; (:X 3 :Y 2 :Z 1)
+</code></pre>
+<p>O parâmetro <code>&amp;whole</code> está ligado à lista inteira. Ele deve vir à frente
+e pode ser prosseguido por outros parâmetros.</p>
+<pre><code class="language-lisp">(destructuring-bind (&amp;whole whole-list &amp;key x y z) (list :z 1 :y 2 :x 3)
+  (list :x x :y y :z z :whole whole-list))
+;; =&gt; (:X 3 :Y 2 :Z 1 :WHOLE-LIST (:Z 1 :Y 2 :X 3))
+</code></pre>
+<p>Desestruturando uma plist, provendo defaults:</p>
+<p>(exemplo retirado de Common Lisp Recipes, de E. Weitz, Apress, 2016)</p>
+<pre><code class="language-lisp">(destructuring-bind (&amp;key a (b :not-found) c
+                     &amp;allow-other-keys)
+    ’(:c 23 :d &quot;D&quot; :a #\A :foo :whatever)
+  (list a b c))
+;; =&gt; (#\A :NOT-FOUND 23)
+</code></pre>
+<p>** TODO
+If this gives you the will to do pattern matching, see
+<a href="pattern_matching.html">pattern matching</a>.</p>
+<a class="header" href="#predicados-null-listp" id="predicados-null-listp"><h3>Predicados: null, listp</h3></a>
+<p><code>null</code> é equivalente a <code>not</code>, mas é o mais recomendado.</p>
+<p><code>listp</code> veerifica se um objeto é uma cons cell ou nil.</p>
+<p>e predicados de sequência.</p>
+<a class="header" href="#idiff-tailp-list-make-list-fill-revappend-nreconc-consp-atom" id="idiff-tailp-list-make-list-fill-revappend-nreconc-consp-atom"><h3>idiff, tailp, list*, make-list, fill, revappend, nreconc, consp, atom</h3></a>
+<pre><code class="language-lisp">(make-list 3 :initial-element &quot;ta&quot;)
+;; =&gt; (&quot;ta&quot; &quot;ta&quot; &quot;ta&quot;)
+</code></pre>
+<pre><code class="language-lisp">(make-list 3)
+;; =&gt; (NIL NIL NIL)
+(fill * &quot;hello&quot;)
+;; =&gt; (&quot;hello&quot; &quot;hello&quot; &quot;hello&quot;)
+</code></pre>
+<a class="header" href="#sequências" id="sequências"><h2>Sequências</h2></a>
+<p><strong>lists</strong> e <strong>vectors</strong> (e, portanto <strong>strings</strong>) são sequências.</p>
+<p><em>Note</em>: veja também a página sobre <a href="strings.html">strings</a>.</p>
+<p>Muitas das funções de sequência utilizam palavras-chave como argumentos.
+Todos os argumentos podem ser são opcionais, e se especificados, podem
+aparecer em qualquer ordem.</p>
+<p>Atente-se ao argumento <code>:teste</code>. O seu padrão é <code>eql</code> (para strings use <code>:equal</code>).</p>
+<p>Para o argumento <code>:key</code> deve-se passar nil, ou uma função com um argumento.
+Essa função key é usada como umo filtro pelo qual os elementos da
+sequência são visualizados. Por exemplo:</p>
+<pre><code class="language-lisp">(find x y :key 'car)
+</code></pre>
+<p>é similar a <code>(assoc* x y)</code>, ela busca por um elemento na lista em que
+o car seja igual a x, oa invés de um elemento que seja igual a x.
+Se <code>:key</code> for omitido ou nil, o filtro será efetivamente a funçãp identidade.</p>
+<p>Exemplo com uma alist:</p>
+<pre><code class="language-lisp">(defparameter my-alist (list (cons 'foo &quot;foo&quot;)
+                             (cons 'bar &quot;bar&quot;)))
+;; =&gt; ((FOO . &quot;foo&quot;) (BAR . &quot;bar&quot;))
+(find 'bar my-alist)
+;; =&gt; NIL
+(find 'bar my-alist :key 'car)
+;; =&gt; (BAR . &quot;bar&quot;)
+</code></pre>
+<p>Para algo mais, use um <code>lambda</code> que receba um parâmetro.</p>
+<pre><code class="language-lisp">(find 'bar my-alist :key (lambda (it) (car it)))
+</code></pre>
+<p><em>Nota</em>: <a href="cl21.html#shorter-lambda">cl21</a> possui short lambdas:</p>
+<pre><code class="language-lisp">(find 'bar my-alist :key ^(car %))
+(find 'bar my-alist :key (lm (it) (car it)))
+</code></pre>
+<a class="header" href="#predicados-every-some" id="predicados-every-some"><h3>Predicados: every, some,...</h3></a>
+<p><code>every, notevery (teste, sequência)</code>: retornam nil ou t, respectivamente,
+no momento em que um teste ou qualquer conjunto de elementos correspondentes
+a elementos de sequências retorne nil.</p>
+<pre><code class="language-lisp">(defparameter foo '(1 2 3))
+(every #'evenp foo)
+;; =&gt; NIL
+(some #'evenp foo)
+;; =&gt; T
+</code></pre>
+<p>com uma lista de strings:</p>
+<pre><code class="language-lisp">(defparameter str '(&quot;foo&quot; &quot;bar&quot; &quot;team&quot;))
+(every #'stringp str)
+;; =&gt; T
+(some #'(lambda (it) (= 3 (length it))) str)
+;; =&gt; T
+(some ^(= 3 (length %)) str) ;; in CL21
+;; =&gt; T
+</code></pre>
+<p><code>some</code>, <code>notany</code> <em>(teste, sequência)</em>: retorna o valor do teste ou nil.
+<code>mismatch</code> <em>(sequence-a, sequence-b)</em>: Retorna a posição em sequênce-a
+onde sequence-a sequence-b deixam de ser iguais. Retorna nil se as duas
+sequências forem iguais. Outros parâmetros: <code>:from-end bool</code>, <code>:start1</code>, <code>:end[1,2]</code>.</p>
+<a class="header" href="#functions" id="functions"><h3>Functions</h3></a>
+<p>Veja também as funções de sequência definidas em (em inglês)
+<a href="https://common-lisp.net/project/alexandria/draft/alexandria.html#Sequences">Alexandria</a>:
+<code>starts-with</code>, <code>ends-with</code>, <code>ends-with-subseq</code>, <code>length=</code>, <code>emptyp</code>,…</p>
+<a class="header" href="#length-sequence" id="length-sequence"><h4>length (sequence)</h4></a>
+<a class="header" href="#member-elt-sequence" id="member-elt-sequence"><h4>member (elt, sequence)</h4></a>
+<p>Retorna o tail de <code>sequence</code> a partir do primeiro elemento que satisfaça <code>eql</code>.
+Aceita <code>:test</code>, <code>:test-not</code>, <code>:key</code>(funções ou símbolos).</p>
+<pre><code class="language-lisp">(member 2 '(1 2 3))
+;; (2 3)
+</code></pre>
+<a class="header" href="#elt-sequence-index---encontra-a-partir-de-index" id="elt-sequence-index---encontra-a-partir-de-index"><h4>elt (sequence, index) - encontra a partir de index</h4></a>
+<p>Cuidado, neste caso a sequência vem primeiro.</p>
+<a class="header" href="#count-foo-sequence" id="count-foo-sequence"><h4>count (foo sequence)</h4></a>
+<p>Retorna o número de elementos em sequence que dão match em <em>foo</em>.</p>
+<p>Parâmetros adicionais: <code>:from-end</code>, <code>:start</code>, <code>:end</code>.</p>
+<p>Veja também <code>count-if</code>, <code>count-not</code> <em>(test-function sequence)</em>.</p>
+<a class="header" href="#subseq-sequence-start-end" id="subseq-sequence-start-end"><h4>subseq (sequence start, [end])</h4></a>
+<p>É passível de &quot;setf&quot;, mas funciona apenas se a nova sequência tiver o mesmo
+tamanho que a sequência a ser substituída.</p>
+<a class="header" href="#sort-stable-sort-sequence-test--key-function" id="sort-stable-sort-sequence-test--key-function"><h4>sort, stable-sort (sequence, test [, key function])</h4></a>
+<p>Esta função é destrutiva, então você é de bom tom copiar a sequência
+antes da ordenação:</p>
+<pre><code>(sort (copy-seq seq) :test #'string&lt;)
+</code></pre>
+<a class="header" href="#find-position-foo-sequence---obter-index" id="find-position-foo-sequence---obter-index"><h4>find, position (foo, sequence) - obter index</h4></a>
+<p>além de <code>find-if</code>, <code>find-if-not</code>, <code>position-if</code>, <code>position-if-not</code> <em>(teste sequência)</em>.
+Veja também os parâmetros <code>:key</code>, <code>:test</code>.</p>
+<pre><code class="language-lisp">(find 20 '(10 20 30))
+;; 20
+(position 20 '(10 20 30))
+;; 1
+</code></pre>
+<a class="header" href="#search-sequence-a-sequence-b" id="search-sequence-a-sequence-b"><h4>search (sequence-a, sequence-b)</h4></a>
+<p>Procura por uma subsequência em sequence-b que correspondente a sequence-a.
+Retorna a posição da subsequência correspondente ou NIL. Possui os parâmetros
+<code>from-end</code>, <code>end1/2</code> entre outros.</p>
+<a class="header" href="#substitute-nsubstituteifif-not" id="substitute-nsubstituteifif-not"><h4>substitute, nsubstitute[if,if-not]</h4></a>
+<a class="header" href="#sort-stable-sort-merge" id="sort-stable-sort-merge"><h4>sort, stable-sort, merge</h4></a>
+<a class="header" href="#replace-sequence-a-sequence-b" id="replace-sequence-a-sequence-b"><h4>replace (sequence-a, sequence-b)</h4></a>
+<p>Substitui os elmentos de sequence-a pelos elementos de sequence-b.</p>
+<a class="header" href="#remove-delete-foo-sequence" id="remove-delete-foo-sequence"><h4>remove, delete (foo sequence)</h4></a>
+<p>Faz uma cópia de sequence sem elementos que dêem match em foo. Possui os parâmetros
+:start/end<code>,</code>:key<code>e</code>:count`.</p>
+<p><code>delete</code> faz o mesmo, pórem, dependendo do contexto ela pode destruir a sequência
+original no processo.</p>
+<pre><code class="language-lisp">(remove &quot;foo&quot; '(&quot;foo&quot; &quot;bar&quot; &quot;foo&quot;) :test 'equal)
+;; =&gt; (&quot;bar&quot;)
+</code></pre>
+<p>Veja também <code>remove-if[-not]</code> a seguir.</p>
+<a class="header" href="#mapping-map-mapcar-remove-if-not" id="mapping-map-mapcar-remove-if-not"><h3>mapping (map, mapcar, remove-if[-not],...)</h3></a>
+<p>Se você já está familiarizado com map e filter em outras linguagens,
+provavelmete o que você procura é <code>mapcar</code>. Mas ele funciona apenas em listas,
+então para iterar em vetores e produzir tanto um vetor quanto uma lista, use <code>(map 'list function vector)</code>.</p>
+<p>mapcar também aceita múltiplas listas com <code>&amp;rest more-seqs</code>. O mapeamento termina
+no momento em que a menor sequência chega ao fim.</p>
+<p><em>Nota: <code>map</code> do cl21 é um <code>mapcar</code> para listas e vetores.</em></p>
+<p><code>map</code> recebe o tipo de saída desejado como o primeiro argumento (<code>'list</code>, <code>'vector</code>, ou <code>'string</code>):</p>
+<pre><code class="language-lisp">(defparameter foo '(1 2 3))
+(map 'list (lambda (it) (* 10 it)) foo)
+</code></pre>
+<p><strong>Filter</strong>, aqui, é chamado de <code>remove-if-not</code>.</p>
+<a class="header" href="#flatten-a-list-alexandria" id="flatten-a-list-alexandria"><h3>Flatten a list (Alexandria)</h3></a>
+<p>Com
+<a href="https://common-lisp.net/project/alexandria/draft/alexandria.html">Alexandria</a>,
+temor a função <code>flatten</code>.</p>
+<a class="header" href="#criando-listas-com-variáveis" id="criando-listas-com-variáveis"><h3>Criando listas com variáveis</h3></a>
+<p>Este é um dos usos de <code>backquote</code>:</p>
+<pre><code class="language-lisp">(defparameter *var* &quot;bar&quot;)
+;; First try:
+'(&quot;foo&quot; *var* &quot;baz&quot;) ;; sem backquote
+;; =&gt; (&quot;foo&quot; *VAR* &quot;baz&quot;) ;; errado
+</code></pre>
+<p>Segunda tentaiva, usando backquote interpolation.</p>
+<pre><code class="language-lisp">`(&quot;foo&quot; ,*var* &quot;baz&quot;)     ;; com backquote, vírgula
+;; =&gt; (&quot;foo&quot; &quot;bar&quot; &quot;baz&quot;) ;; correto
+</code></pre>
+<p>O backquote avisa que nós vamos fazer a interpolação e a vírgula repassa
+o valor da variável.</p>
+<p>Se a nossa variável é uma lista:</p>
+<pre><code class="language-lisp">(defparameter *var* '(&quot;bar&quot; &quot;baz&quot;))
+;; First try:
+`(&quot;foo&quot; ,*var*)
+;; =&gt; (&quot;foo&quot; (&quot;bar&quot; &quot;baz&quot;)) ;; uma nested list
+`(&quot;foo&quot; ,@*var*)            ;; backquote, comma-@ to
+;; =&gt; (&quot;foo&quot; &quot;bar&quot; &quot;baz&quot;)
+</code></pre>
+<p>E. Weitz avisa que &quot;objetos gerados desta forma muito provavelmete da mesma estrutura (ver Receita 2-7)&quot;.</p>
+<a class="header" href="#comparando-listas" id="comparando-listas"><h3>Comparando listas</h3></a>
+<p>É possível usar funções de set.</p>
+<a class="header" href="#set" id="set"><h2>Set</h2></a>
+<a class="header" href="#interseção-de-listas" id="interseção-de-listas"><h3><code>interseção</code> de listas</h3></a>
+<p>Quais elementos estão tanto em list-a quanto em list-b ?</p>
+<pre><code class="language-lisp">(defparameter list-a '(0 1 2 3))
+(defparameter list-b '(0 2 4))
+(intersection list-a list-b)
+;; =&gt; (2 0)
+</code></pre>
+<a class="header" href="#remover-os-elementos-de-list-b-de-uma-list-a" id="remover-os-elementos-de-list-b-de-uma-list-a"><h3>Remover os elementos de list-b de uma list-a</h3></a>
+<p><code>set-difference</code></p>
+<pre><code class="language-lisp">(set-difference list-a list-b)
+;; =&gt; (3 1)
+(set-difference list-b list-a)
+;; =&gt; (4)
+</code></pre>
+<a class="header" href="#juntar-duas-listas" id="juntar-duas-listas"><h3>Juntar duas listas</h3></a>
+<p><code>union</code></p>
+<pre><code class="language-lisp">(union list-a list-b)
+;; =&gt; (3 1 0 2 4) ;; a ordem pode ser diferente no seu Lisp
+</code></pre>
+<a class="header" href="#remover-elementos-que-estão-em-ambas-as-listas" id="remover-elementos-que-estão-em-ambas-as-listas"><h3>Remover elementos que estão em ambas as listas</h3></a>
+<p><code>set-exclusive-or</code></p>
+<pre><code class="language-lisp">(set-exclusive-or list-a list-b)
+;; =&gt; (4 3 1)
+</code></pre>
+<p>e sua forma &quot;reciclável&quot; (<code>nintersection</code>,...).</p>
+<p>Veja também as funções <code>setp</code>, <code>set-equal</code>,... em
+<a href="https://common-lisp.net/project/alexandria/draft/alexandria.html#Conses">Alexandria</a>.</p>
+<a class="header" href="#fset---estrutura-de-dados-imutáveis" id="fset---estrutura-de-dados-imutáveis"><h2>Fset - estrutura de dados imutáveis</h2></a>
+<p>Você também pode conferir a biblioteca
+<a href="https://common-lisp.net/project/fset/Site/FSet-Tutorial.html">FSet</a>
+(em Quicklisp).</p>
+<a class="header" href="#arrays-e-vectors" id="arrays-e-vectors"><h2>Arrays e Vectors</h2></a>
+<p><strong>Arrays</strong> possuem características de tempo de acesso constante.</p>
+<p>Podem ser fixos ou ajustáveis. Um <em>simple array</em> não pode ser separado
+(usando <code>:displaced-to, para apontar para outro array), ajustável (</code>:adjust-array<code>), e também não possui um fill pointer (</code>full-pointer`, que se move conforme elementos são retirados ou adicionados).</p>
+<p>Um <strong>vetor</strong> é um array de rank 1 (de uma dimensão). Ele também é uma sequência.</p>
+<p>Um <em>simple vector</em> é um simple array que não é especializado
+(não é usado <code>:element-type</code>para definir o tipo dos elementos).</p>
+<a class="header" href="#criar-um-array-com-uma-ou-mais-dimensões" id="criar-um-array-com-uma-ou-mais-dimensões"><h3>Criar um array, com uma ou mais dimensões</h3></a>
+<p><code>make-array</code> <em>(sizes-list :adjustable bool)</em></p>
+<p><code>adjust-array</code> <em>(array, sizes-list, :element-type, :initial-element)</em></p>
+<a class="header" href="#acesso-aref-array-i-j-" id="acesso-aref-array-i-j-"><h3>Acesso: aref (array i [j ...])</h3></a>
+<p><code>aref</code> <em>(array i j k ...)</em> ou <code>row-major-aref</code> <em>(array i)</em> equivalente a <code>(aref i i i ...)</code>.</p>
+<p>O resultado é passível de <code>setf</code>.</p>
+<pre><code class="language-lisp">(defparameter myarray (make-array '(2 2 2) :initial-element 1))
+myarray
+;; =&gt; #3A(((1 1) (1 1)) ((1 1) (1 1)))
+(aref myarray 0 0 0)
+;; =&gt; 1
+(setf (aref myarray 0 0 0) 9)
+;; =&gt; 9
+(row-major-aref myarray 0)
+;; =&gt; 9
+</code></pre>
+<a class="header" href="#tamanhos" id="tamanhos"><h3>Tamanhos</h3></a>
+<p><code>array-total-size</code> <em>(array i)</em>: quantos elementos cabem no array ?</p>
+<p><code>array-dimensions</code> <em>(array)</em>: uma lista contendo o tamanho das dimensões do array.</p>
+<p><code>array-dimension</code> <em>(array i)</em>: tamanho da <em>i</em>-ésima dimensão.</p>
+<p><code>array-rank</code>: número de dimensões do array.</p>
+<pre><code class="language-lisp">(defparameter myarray (make-array '(2 2 2)))
+;; =&gt; MYARRAY
+myarray
+;; =&gt; #3A(((0 0) (0 0)) ((0 0) (0 0)))
+(array-rank myarray)
+;; =&gt; 3
+(array-dimensions myarray)
+;; =&gt; (2 2 2)
+(array-dimension myarray 0)
+;; =&gt; 2
+(array-total-size myarray)
+;; =&gt; 8
+</code></pre>
+<a class="header" href="#vectors" id="vectors"><h3>Vectors</h3></a>
+<p>Crie com <code>vector</code> ou com a reader macro (macro de leitura) <code>#()</code>. Retorna um <em>simple vector.</em></p>
+<pre><code class="language-lisp">(vector 1 2 3)
+;; =&gt; #(1 2 3)
+#(1 2 3)
+;; =&gt; #(1 2 3)
+</code></pre>
+<p><code>vector-push</code> <em>(foo vector)</em>:  substitui o elemento de vector assinalado pelo fill pointer por foo. Pode ser destrutiva.</p>
+<p><code>vector-push-extend</code> *(foo vector [extension-num])*t</p>
+<p><code>vector-pop</code> <em>(vector)</em>: retorna o elemento de vector que fill pointer aponta.</p>
+<p><code>fill-pointer</code> <em>(vector)</em>. Passível de <code>setf</code>.</p>
+<p>Veja também as funções de <em>sequence</em>.</p>
+<a class="header" href="#transformando-um-vector-em-uma-list" id="transformando-um-vector-em-uma-list"><h3>Transformando um vector em uma list.</h3></a>
+<p>Se você está mapeando a list, veja a função <code>map</code> que tem como primeiro
+parâmetro o tipo resultante.</p>
+<p>Ou use <code>(coerce vector 'list)</code>.</p>
+<a class="header" href="#hash-table" id="hash-table"><h2>Hash Table</h2></a>
+<p>Hash Tables são poderosas estruturas de dados, associando chaves com valores
+de uma forma muito eficiente. Hash Tables são preferíveis à association lists
+em casos que performance é essencial, porém introduzem um pouco de overhead,
+o que torna assoc lists melhores caso a quantidade de pares key-value seja baixa.</p>
+<p>Mas às vezes Alists podem ser usadas de forma diferentes:</p>
+<ul>
+<li>podem ser ordenadas</li>
+<li>é possível fazer um push em cons cells que possuem a mesma key,
+remover a primeira e obter uma pilha</li>
+<li>possuem uma representação sã aos olhos humanos</li>
+<li>podem ser fácilmente (de)serializadas</li>
+<li>devido ao RASSOC, chaves e valores em alists são essêncialmente intercâmbiáveis;
+já em hash tables chaves e valores desempenham papéis bem diferentes
+(Veja CLRecipes para mais).</li>
+</ul>
+<a class="header" href="#criando-uma-hash-table" id="criando-uma-hash-table"><h3>Criando uma Hash Table</h3></a>
+<p>Hash Tables são criadas usando a função
+<a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_mk_has.htm"><code>make-hash-table</code></a>.
+Ela não requer argumentos, e o seu argumento mais usado é <code>:test</code>,
+especificando a função usada para testar a equalidade das chaves.</p>
+<p>Se a biblioteca do <a href="http://cl21.org/">cl21</a> for usada, é possível criar a hash table e adicionar elementos ao mesmo tempo com a nova sintáxe do reader <code>#H</code> :</p>
+<pre><code class="language-lisp">(defparameter *my-hash* #H(:name &quot;Eitaro Fukamachi&quot;))
+</code></pre>
+<p>e acessamos um elemento com</p>
+<pre><code class="language-lisp">(getf *my-hash* :name)
+</code></pre>
+<a class="header" href="#obtendo-um-valor-de-uma-hash-table" id="obtendo-um-valor-de-uma-hash-table"><h3>Obtendo um valor de uma Hash Table</h3></a>
+<p>A função
+<a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_gethas.htm"><code>gethash</code></a>
+recebe dois argumentos obrigatórios: uma chave, e uma hash table. E retorna dois valores:
+o valor correspondente à chave na hash table (ou <code>nil</code> se não for encontrado),
+e um boolean indicando se a chave foi encontrada ou não. O segundo valor é necessário,
+já que nil é um valor válido em um par chave-valor, então receber <code>nil</code> como primeiro
+argumento de gethash não significa necessáriamente que a chave não foi encontrada.</p>
+<a class="header" href="#obtendo-uma-chave-que-não-existe-com-um-valor-default" id="obtendo-uma-chave-que-não-existe-com-um-valor-default"><h4>Obtendo uma chave que não existe com um valor default</h4></a>
+<p><code>gethash</code> poossui um terceiro argumento opcional</p>
+<pre><code class="language-lisp">(gethash 'bar *my-hash* &quot;default-bar&quot;)
+;; =&gt; &quot;default-bar&quot;
+;;     NIL
+</code></pre>
+<a class="header" href="#obtendo-todas-as-chaves-ou-todos-os-valores-de-uma-hash-table" id="obtendo-todas-as-chaves-ou-todos-os-valores-de-uma-hash-table"><h4>Obtendo todas as chaves ou todos os valores de uma hash table</h4></a>
+<p>A biblioteca
+<a href="https://common-lisp.net/project/alexandria/draft/alexandria.html">Alexandria</a>
+(em Quicklisp) tem as funções <code>hash-table-keys</code> e <code>hash-table-values</code> com esse propósito.</p>
+<pre><code class="language-lisp">(ql:quickload :alexandria)
+;; […]
+(alexandria:hash-table-keys *my-hash*)
+;; =&gt; (BAR)
+</code></pre>
+<a class="header" href="#adicionando-um-elemento-a-uma-hash-table" id="adicionando-um-elemento-a-uma-hash-table"><h3>Adicionando um elemento a uma Hash Table</h3></a>
+<p>Se deseja adicionar um elemento a uma hash table, você pode usar a função <code>gethash</code>
+para obter os elementos da hash table, em conjunto com
+<a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_setf_.htm"><code>setf</code></a>.</p>
+<pre><code class="language-lisp">CL-USER&gt; (defparameter *my-hash* (make-hash-table))
+*MY-HASH*
+CL-USER&gt; (setf (gethash 'one-entry *my-hash*) &quot;one&quot;)
+&quot;one&quot;
+CL-USER&gt; (setf (gethash 'another-entry *my-hash*) 2/4)
+1/2
+CL-USER&gt; (gethash 'one-entry *my-hash*)
+&quot;one&quot;
+T
+CL-USER&gt; (gethash 'another-entry *my-hash*)
+1/2
+T
+</code></pre>
+<a class="header" href="#testando-a-presença-de-uma-chave-em-uma-hash-table" id="testando-a-presença-de-uma-chave-em-uma-hash-table"><h3>Testando a presença de uma chave em uma Hash Table</h3></a>
+<p>O primeiro valor retornado por <code>gethash</code> é o objeto da hash table associado à chave
+provida por você como argumento a <code>gethash</code>, ou <code>nil</code> caso nenhum valor exista para esta chave.
+Esse valor pode ser usado como um
+<a href="http://www.lispworks.com/documentation/HyperSpec/Body/26_glo_g.htm#generalized_boolean%22%3Egeneralizedboolean">boolean generalizado</a>
+se você deseja testar a existência de chaves.</p>
+<pre><code class="language-lisp">CL-USER&gt; (defparameter *my-hash* (make-hash-table))
+*MY-HASH*
+CL-USER&gt; (setf (gethash 'one-entry *my-hash*) &quot;one&quot;)
+&quot;one&quot;
+CL-USER&gt; (if (gethash 'one-entry *my-hash*)
+           &quot;Key exists&quot;
+           &quot;Key does not exist&quot;)
+&quot;Key exists&quot;
+CL-USER&gt; (if (gethash 'another-entry *my-hash*)
+           &quot;Key exists&quot;
+           &quot;Key does not exist&quot;)
+&quot;Key does not exist&quot;
+</code></pre>
+<p>Mas perceba que isso <em>não</em> funciona caso <code>nil</code> esteja entre os valores que você
+deseja pôr no hash.</p>
+<pre><code class="language-lisp">CL-USER&gt; (setf (gethash 'another-entry *my-hash*) nil)
+NIL
+CL-USER&gt; (if (gethash 'another-entry *my-hash*)
+           &quot;Key exists&quot;
+           &quot;Key does not exist&quot;)
+&quot;Key does not exist&quot;
+</code></pre>
+<p>Neste caso, você deve verificar o <em>segundo</em> valor de retorno de <code>gethash</code>
+que sempre retornará <code>nil</code> se nenhum valor for encontrado, e T caso contrário.</p>
+<pre><code class="language-lisp">CL-USER&gt; (if (nth-value 1 (gethash 'another-entry *my-hash*))
+           &quot;Key exists&quot;
+           &quot;Key does not exist&quot;)
+&quot;Key exists&quot;
+CL-USER&gt; (if (nth-value 1 (gethash 'no-entry *my-hash*))
+           &quot;Key exists&quot;
+           &quot;Key does not exist&quot;)
+&quot;Key does not exist&quot;
+</code></pre>
+<a class="header" href="#deletando-de-uma-hash-table" id="deletando-de-uma-hash-table"><h3>Deletando de uma Hash Table</h3></a>
+<p>Use
+<a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_remhas.htm"><code>remhash</code></a>
+para deletar uma entrada. Tanto a chave quanto seu valor associado serão removidos
+da tabela. <code>remhash</code> retorna T se a entrada existe, e  <code>nil</code> se não.</p>
+<pre><code class="language-lisp">CL-USER&gt; (defparameter *my-hash* (make-hash-table))
+*MY-HASH*
+CL-USER&gt; (setf (gethash 'first-key *my-hash*) 'one)
+ONE
+CL-USER&gt; (gethash 'first-key *my-hash*)
+ONE
+T
+CL-USER&gt; (remhash 'first-key *my-hash*)
+T
+CL-USER&gt; (gethash 'first-key *my-hash*)
+NIL
+NIL
+CL-USER&gt; (gethash 'no-entry *my-hash*)
+NIL
+NIL
+CL-USER&gt; (remhash 'no-entry *my-hash*)
+NIL
+CL-USER&gt; (gethash 'no-entry *my-hash*)
+NIL
+NIL
+</code></pre>
+<a class="header" href="#percorrendo-uma-hash-table" id="percorrendo-uma-hash-table"><h3>Percorrendo uma Hash Table</h3></a>
+<p>Se você deseja realizar uma ação em cada par chave-valor em uma hash table você pode usar:</p>
+<p><a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_maphas.htm"><code>maphash</code></a>
+que itera sobre todas as entradas na tabela. Seu primeiro argumento deve ser
+uma função que aceita <em>dois</em> argumentos, a chave e o valor de cada entrada.</p>
+<p>Perceba que pela natureza das Hash Tables é <em>impossível</em> controlar a ordem em que
+as entradas são providas pela <code>maphash</code> (ou outras funções que percorram hash tables).
+<code>maphash</code> sempre retorna <code>nil</code>.</p>
+<pre><code class="language-lisp">CL-USER&gt; (defparameter *my-hash* (make-hash-table))
+*MY-HASH*
+CL-USER&gt; (setf (gethash 'first-key *my-hash*) 'one)
+ONE
+CL-USER&gt; (setf (gethash 'second-key *my-hash*) 'two)
+TWO
+CL-USER&gt; (setf (gethash 'third-key *my-hash*) nil)
+NIL
+CL-USER&gt; (setf (gethash nil *my-hash*) 'nil-value)
+NIL-VALUE
+CL-USER&gt; (defun print-hash-entry (key value)
+    (format t &quot;The value associated with the key ~S is ~S~%&quot; key value))
+PRINT-HASH-ENTRY
+CL-USER&gt; (maphash #'print-hash-entry *my-hash*)
+The value associated with the key FIRST-KEY is ONE
+The value associated with the key SECOND-KEY is TWO
+The value associated with the key THIRD-KEY is NIL
+The value associated with the key NIL is NIL-VALUE
+</code></pre>
+<p>Também é possível usar
+<a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_w_hash.htm"><code>with-hash-table-iterator</code></a>,
+uma macro que faz do seu primeiro argumento um iterador (usando
+<a href="http://www.lispworks.com/documentation/HyperSpec/Body/s_flet_.htm"><code>macrolet</code></a>)
+que retorna três valores por hash table para cada vez que for invocada - um
+boolean generalizado que é true se uma entrada for retornada, a chave para a entrada,
+e o valor da entrada. Se não houverem mais entradas, apenas o valor é rotornado - <code>nil</code></p>
+<pre><code class="language-lisp">;;; same hash-table as above
+CL-USER&gt; (with-hash-table-iterator (my-iterator *my-hash*)
+           (loop
+              (multiple-value-bind (entry-p key value)
+                  (my-iterator)
+                (if entry-p
+                    (print-hash-entry key value)
+                    (return)))))
+The value associated with the key FIRST-KEY is ONE
+The value associated with the key SECOND-KEY is TWO
+The value associated with the key THIRD-KEY is NIL
+The value associated with the key NIL is NIL-VALUE
+NIL
+</code></pre>
+<p>TODO: Consigo traduzir isso não moisés
+Tome nota da seguinte ressalva do Hyperspec: &quot;Não é especificado o que pode
+acontecer se qualquer estado interior implícito de uma iteração for retornada
+fora da extensão dinamica da form <code>with-hash-table-iterator</code>, como retornar um
+término da form de invocação.</p>
+<p>E sempre existe a opção do <a href="http://www.lispworks.com/documentation/HyperSpec/Body/06_a.htm"><code>loop</code></a>:</p>
+<pre><code class="language-lisp">;;; same hash-table as above
+CL-USER&gt; (loop for key being the hash-keys of *my-hash*
+           do (print key))
+FIRST-KEY
+SECOND-KEY
+THIRD-KEY
+NIL
+NIL
+CL-USER&gt; (loop for key being the hash-keys of *my-hash*
+           using (hash-value value)
+           do (format t &quot;The value associated with the key ~S is ~S~%&quot; key value))
+The value associated with the key FIRST-KEY is ONE
+The value associated with the key SECOND-KEY is TWO
+The value associated with the key THIRD-KEY is NIL
+The value associated with the key NIL is NIL-VALUE
+NIL
+CL-USER&gt; (loop for value being the hash-values of *my-hash*
+           do (print value))
+ONE
+TWO
+NIL
+NIL-VALUE
+NIL
+CL-USER&gt; (loop for value being the hash-values of *my-hash*
+           using (hash-key key)
+           do (format t &quot;~&amp;~A -&gt; ~A&quot; key value))
+FIRST-KEY -&gt; ONE
+SECOND-KEY -&gt; TWO
+THIRD-KEY -&gt; NIL
+NIL -&gt; NIL-VALUE
+NIL
+</code></pre>
+<p>**TODO: Procurar link certo pro cl21
+Por último, existe também o <code>(doeach ((key val) *hash*) ...)</code> de <a href="cl21.htm">cl21</a>.</p>
+<a class="header" href="#percorrendo-chaves-ou-valores" id="percorrendo-chaves-ou-valores"><h4>Percorrendo chaves ou valores</h4></a>
+<p>Para fazer um map pelas chaves ou pelos valores, é possível usar
+<code>maphash-keys</code> e <code>maphash-values</code> de Alexandria.</p>
+<a class="header" href="#contando-as-entradas-em-uma-hash-table" id="contando-as-entradas-em-uma-hash-table"><h3>Contando as entradas em uma Hash Table</h3></a>
+<p>Não é preciso usar seus dedos (rs) - Common Lisp já possui uma função para isso
+<a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_hash_1.htm"><code>hash-table-count</code></a>.</p>
+<pre><code class="language-lisp">CL-USER&gt; (defparameter *my-hash* (make-hash-table))
+*MY-HASH*
+CL-USER&gt; (hash-table-count *my-hash*)
+0
+CL-USER&gt; (setf (gethash 'first *my-hash*) 1)
+1
+CL-USER&gt; (setf (gethash 'second *my-hash*) 2)
+2
+CL-USER&gt; (setf (gethash 'third *my-hash*) 3)
+3
+CL-USER&gt; (hash-table-count *my-hash*)
+3
+CL-USER&gt; (setf (gethash 'second *my-hash*) 'two)
+TWO
+CL-USER&gt; (hash-table-count *my-hash*)
+3
+CL-USER&gt; (clrhash *my-hash*)
+#&lt;EQL hash table, 0 entries {48205F35}&gt;
+CL-USER&gt; (hash-table-count *my-hash*)
+0
+</code></pre>
+<a class="header" href="#problemas-de-performance-tamanho-da-hash-table" id="problemas-de-performance-tamanho-da-hash-table"><h3>Problemas de Performance: Tamanho da Hash Table</h3></a>
+<p>A função <code>make-hash-table</code> possui alguns parâmetros opcionais que controlam o
+tamanho inicial da sua Hash Table e de que forma ela vai crescer, caso preciso.
+Esse pode ser um iimportante problema de performance se você está trabalhando com
+hash tables grandes. Aqui está um exemplo (não muito científico) usando
+<a href="http://www.cons.org/cmucl">CMUCL</a> pre-18d em um sistema Linux:</p>
+<pre><code class="language-lisp">CL-USER&gt; (defparameter *my-hash* (make-hash-table))
+*MY-HASH*
+CL-USER&gt; (hash-table-size *my-hash*)
+65
+CL-USER&gt; (hash-table-rehash-size *my-hash*)
+1.5
+CL-USER&gt; (time (dotimes (n 100000) (setf (gethash n *my-hash*) n)))
+Compiling LAMBDA NIL:
+Compiling Top-Level Form:
+
+Evaluation took:
+  0.27 seconds of real time
+  0.25 seconds of user run time
+  0.02 seconds of system run time
+  0 page faults and
+  8754768 bytes consed.
+NIL
+CL-USER&gt; (time (dotimes (n 100000) (setf (gethash n *my-hash*) n)))
+Compiling LAMBDA NIL:
+Compiling Top-Level Form:
+
+Evaluation took:
+  0.05 seconds of real time
+  0.05 seconds of user run time
+  0.0 seconds of system run time
+  0 page faults and
+  0 bytes consed.
+NIL
+</code></pre>
+<p>Os valores para
+<a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_hash_4.htm"><code>hash-table-size</code></a>
+e para
+<a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_hash_2.htm"><code>hash-table-rehash-size</code></a>
+são dependentes da implementação. No nosso caso, CMUL escolhe um tamanho inicial
+de 65, e vai aumentar o tamanho da tabela em 50% sempre que ela tiver que crescer.
+Vejamos quantas vezes nós vamos ter que redimensionar o tamanho da nossa hash table
+até que ela chegue ao seu tamanho final...</p>
+<pre><code class="language-lisp">CL-USER&gt; (log (/ 100000 65) 1.5)
+18.099062
+CL-USER&gt; (let ((size 65)) (dotimes (n 20) (print (list n size)) (setq size (* 1.5 size))))
+(0 65)
+(1 97.5)
+(2 146.25)
+(3 219.375)
+(4 329.0625)
+(5 493.59375)
+(6 740.3906)
+(7 1110.5859)
+(8 1665.8789)
+(9 2498.8184)
+(10 3748.2275)
+(11 5622.3413)
+(12 8433.512)
+(13 12650.268)
+(14 18975.402)
+(15 28463.104)
+(16 42694.656)
+(17 64041.984)
+(18 96062.98)
+(19 144094.47)
+NIL
+</code></pre>
+<p>Ele teve que crescer 19 vezes até ser grande o suficiente para comportar 100.000 entradas.
+Isto explica o porque de tantos consings e a relativa demora para preencher a tabela.
+Explica também porque a segunda vez foi bem mais rápida -
+a hash table já estava com seu tamanho correto.</p>
+<p>Aqui está uma forma mais rápida de fazer esse redimensionamento:
+Se já soubermos de antemão quão grande a nossa tabela será, nós podemos de cara
+começar com o tamanho exato:</p>
+<pre><code class="language-lisp">CL-USER&gt; (defparameter *my-hash* (make-hash-table :size 100000))
+*MY-HASH*
+CL-USER&gt; (hash-table-size *my-hash*)
+100000
+CL-USER&gt; (time (dotimes (n 100000) (setf (gethash n *my-hash*) n)))
+Compiling LAMBDA NIL:
+Compiling Top-Level Form:
+
+Evaluation took:
+  0.04 seconds of real time
+  0.04 seconds of user run time
+  0.0 seconds of system run time
+  0 page faults and
+  0 bytes consed.
+NIL
+</code></pre>
+<p>Esta forma é obviamente muito mais rápida. Além disso não envolveu consing
+de forma alguma, pois não houve redimensionamento.
+Se não se sabe o tamanho final, mas é possível estimar a taxa de crescimento
+da hash table, pode-se passar este valor para <code>make-hash-table</code>. Ao se passar um
+número inteito especifica-se um crescimento absoluto, já um numero de ponto flutuante
+um crescimento relativo.</p>
+<pre><code class="language-lisp">CL-USER&gt; (defparameter *my-hash* (make-hash-table :rehash-size 100000))
+*MY-HASH*
+CL-USER&gt; (hash-table-size *my-hash*)
+65
+CL-USER&gt; (hash-table-rehash-size *my-hash*)
+100000
+CL-USER&gt; (time (dotimes (n 100000) (setf (gethash n *my-hash*) n)))
+Compiling LAMBDA NIL:
+Compiling Top-Level Form:
+
+Evaluation took:
+  0.07 seconds of real time
+  0.05 seconds of user run time
+  0.01 seconds of system run time
+  0 page faults and
+  2001360 bytes consed.
+NIL
+</code></pre>
+<p>Relativamente rápido (apenas um redimensionamento é necessário) mas com
+muito mais consing, pois quase toda a hash table (tirando os 65 elementos iniciais)
+teve de ser construída durante o loop.</p>
+<p>Note também que você pode especificar o <code>rehash-threshold</code> enquanto cria
+uma nova hash table. E por último, sua implementação pode <em>ignorar completamente</em>
+os valores os valores passados por <code>rehash-size</code> e <code>rehash-threshold</code> ...</p>
+<a class="header" href="#alist" id="alist"><h2>Alist</h2></a>
+<p>Umas lista associativa é uma lista de cons cells.</p>
+<p>Este simples exemplo:</p>
+<pre><code class="language-lisp">(defparameter *my-alist* (list (cons 'foo &quot;foo&quot;)
+                             (cons 'bar &quot;bar&quot;)))
+;; =&gt; ((FOO . &quot;foo&quot;) (BAR . &quot;bar&quot;))
+</code></pre>
+<p>fica assim:</p>
+<pre><code>[o|o]---[o|/]
+ |       |
+ |      [o|o]---&quot;bar&quot;
+ |       |
+ |      BAR
+ |
+[o|o]---&quot;foo&quot;
+ |
+FOO
+</code></pre>
+<p>Nós podemos construir uma alist de acordo com sua representação:</p>
+<pre><code class="language-lisp">(setf *my-alist* '((:foo . &quot;foo&quot;)
+                 (:bar . &quot;bar&quot;)))
+</code></pre>
+<p>O construtor <code>pairlis</code> associa uma lista de chaves a uma lista de valores:</p>
+<pre><code class="language-lisp">(pairlis '(:foo :bar)
+         '(&quot;foo&quot; &quot;bar&quot;))
+;; =&gt; ((:BAR . &quot;bar&quot;) (:FOO . &quot;foo&quot;))
+</code></pre>
+<p>Para pegar uma chave, nós temos <code>assoc</code> (use <code>:test 'equal</code> quando suas chaves
+forem strings, como sempre). Ela retorna a toda a cons cell, então você pode usar
+<code>cdr</code> ou <code>second</code> para obter o valor, ou ainda melhor, <code>assoc-value list key</code> de <code>Alexandria</code>.</p>
+<pre><code class="language-lisp">(alexandria:assoc-value *my-alist* :foo)
+;; it actually returns 2 values
+;; &quot;foo&quot;
+;; (:FOO . &quot;FOO&quot;)
+</code></pre>
+<p>Existem <code>assoc-if</code>, e <code>rassoc</code> para obter uma cons cell a partir do seu valor.</p>
+<p>Para adicionar uma chave, nós fazemos <code>push</code> para outra cons cell:</p>
+<pre><code class="language-lisp">(push (cons 'team &quot;team&quot;) *my-alist*)
+;; =&gt; ((TEAM . &quot;team&quot;) (FOO . &quot;foo&quot;) (BAR . &quot;bar&quot;))
+</code></pre>
+<p>Podemos usar <code>pop</code> e outras funções que operam sobre listas, como <code>remove</code>:</p>
+<pre><code class="language-lisp">(remove :team *my-alist*)
+;; =&gt; ((:TEAM . &quot;team&quot;) (FOO . &quot;foo&quot;) (BAR . &quot;bar&quot;)) ;; didn't remove anything
+(remove :team *my-alist* :key 'car)
+;; =&gt; ((FOO . &quot;foo&quot;) (BAR . &quot;bar&quot;)) ;; returns a copy
+</code></pre>
+<p>Remover apenas um elemento com <code>:count</code>:</p>
+<pre><code class="language-lisp">(push (cons 'bar &quot;bar2&quot;) *my-alist*)
+;; =&gt; ((BAR . &quot;bar2&quot;) (TEAM . &quot;team&quot;) (FOO . &quot;foo&quot;) (BAR . &quot;bar&quot;)) ;; twice the 'bar key
+(remove 'bar *my-alist* :key 'car :count 1)
+;; =&gt; ((TEAM . &quot;team&quot;) (FOO . &quot;foo&quot;) (BAR . &quot;bar&quot;))
+;; because otherwise:
+(remove 'bar *my-alist* :key 'car)
+;; =&gt; ((TEAM . &quot;team&quot;) (FOO . &quot;foo&quot;)) ;; no more 'bar
+</code></pre>
+<p>Na biblioteca
+<a href="https://common-lisp.net/project/alexandria/draft/alexandria.html#Conses">Alexandria</a>
+veja mais funções como <code>remove-from-plist</code>, <code>alist-plist</code>, ...</p>
+<a class="header" href="#plist" id="plist"><h2>Plist</h2></a>
+<p>Uma property list (lista de propriedades) é simplesmente uma lista que alterna
+uma chave, um valor, etc, onde suas chaves são simbolos (não é possível utiilizar <code>:test</code>).
+Mais precisamente, a plist tem um cons cell em que <code>car</code> é a chave,
+que <code>cdr</code> aponta para a próxima cons cell em que <code>car</code> seja o valor.</p>
+<p>Esta plist por exemplo:</p>
+<pre><code class="language-lisp">(defparameter my-plist (list 'foo &quot;foo&quot; 'bar &quot;bar&quot;))
+</code></pre>
+<p>é representada assim:</p>
+<pre><code>[o|o]---[o|o]---[o|o]---[o|/]
+ |       |       |       |
+FOO     &quot;foo&quot;   BAR     &quot;bar&quot;
+
+</code></pre>
+<p>Acessamos o valor com <code>getf (list elt)</code> (retorna o valor)
+(a lista é o primeiro elemento),</p>
+<p>removemos um elemento com <code>remf</code>.</p>
+<pre><code class="language-lisp">(defparameter my-plist (list 'foo &quot;foo&quot; 'bar &quot;bar&quot;))
+;; =&gt; (FOO &quot;foo&quot; BAR &quot;bar&quot;)
+(setf (getf my-plist 'foo) &quot;foo!!!&quot;)
+;; =&gt; &quot;foo!!!&quot;
+</code></pre>
+<a class="header" href="#structures" id="structures"><h2>Structures</h2></a>
+<p>Estruturas oferecem um maneira de armazenar dados em espaços determinados.
+Elas suportam single inheritance.</p>
+<p>Classes providas pelo Common Lisp Object System (CLOS) são mais flexiveis,
+porém estruturas podem oferecer melhor performance (veja o exemplo no manual do SBCL).</p>
+<a class="header" href="#criação" id="criação"><h3>Criação</h3></a>
+<p><code>defstruct</code></p>
+<pre><code class="language-lisp">(defstruct person
+   id name age)
+</code></pre>
+<p>Determinar espaços na momento de criação é opcional e por default <code>nil</code>.</p>
+<p>Para colocar um valor default:</p>
+<pre><code class="language-lisp">(defstruct person
+   id
+   (name &quot;john doe&quot;)
+   age)
+</code></pre>
+<p>E para especificar o tipo após o valor default:</p>
+<pre><code class="language-lisp">(defstruct person
+  id
+  (name &quot;john doe&quot; :type string)
+  age)
+</code></pre>
+<p>Se cria uma instância usando o construtor gerado da forma <code>make-</code> + <code>&lt;nome-da-estrutura&gt;</code>,
+ou seja, <code>make-person</code>:</p>
+<pre><code class="language-lisp">(defparameter *me* (make-person))
+*me*
+#S(PERSON :ID NIL :NAME &quot;john doe&quot; :AGE NIL)
+</code></pre>
+<p>note que representações com o print podem ser lidas de volta com o reader.</p>
+<p>Com um nome de tipo inválido:</p>
+<pre><code class="language-lisp">(defparameter *bad-name* (make-person :name 123))
+</code></pre>
+<pre><code>Invalid initialization argument:
+  :NAME
+in call for class #&lt;STRUCTURE-CLASS PERSON&gt;.
+   [Condition of type SB-PCL::INITARG-ERROR]
+</code></pre>
+<p>Nós podemos definir o construtor da estrutura para que a estrutura seja criada sem
+usar argumentos de keywords, o que às vezes pode ser mais útil. Nós passamos o nome
+e a ordem deos argumentos:</p>
+<pre><code class="language-lisp">(defstruct (person (:constructor create-person (id name age)))
+     id
+     name
+     age)
+</code></pre>
+<p>Nosso novo construtor é <code>create-person</code>:</p>
+<pre><code class="language-lisp">(create-person 1 &quot;me&quot; 7)
+#S(PERSON :ID 1 :NAME &quot;me&quot; :AGE 7)
+</code></pre>
+<p>Porém, o default <code>make-person</code> deixa de funcionar:</p>
+<pre><code class="language-lisp">(make-person :name &quot;me&quot;)
+;; debugger:
+obsolete structure error for a structure of type PERSON
+[Condition of type SB-PCL::OBSOLETE-STRUCTURE]
+</code></pre>
+<a class="header" href="#slot-access" id="slot-access"><h3>Slot access</h3></a>
+<p>É possível acessar os slots com accessors criados por <code>&lt;name-of-the-struct&gt;-</code> + <code>slot-name</code>:</p>
+<pre><code class="language-lisp">(person-name *me*)
+;; &quot;john doe&quot;
+</code></pre>
+<a class="header" href="#setting" id="setting"><h3>Setting</h3></a>
+<p>Slots são passíveis de <code>setf</code>:</p>
+<pre><code class="language-lisp">(setf (person-name *me*) &quot;Cookbook author&quot;)
+(person-name *me*)
+;; &quot;Cookbook author&quot;
+</code></pre>
+<a class="header" href="#predicado" id="predicado"><h3>Predicado</h3></a>
+<pre><code class="language-lisp">(person-p *me*)
+T
+</code></pre>
+<a class="header" href="#single-inheritance" id="single-inheritance"><h3>Single inheritance</h3></a>
+<p>Usando o argumento <code>:include &lt;struct&gt;</code>:</p>
+<pre><code class="language-lisp">(defstruct (female (:include person))
+     (gender &quot;female&quot; :type string))
+(make-female :name &quot;Lilie&quot;)
+;; #S(FEMALE :ID NIL :NAME &quot;Lilie&quot; :AGE NIL :GENDER &quot;female&quot;)
+</code></pre>
+<a class="header" href="#limitações" id="limitações"><h3>Limitações</h3></a>
+<p>Depois de uma mudança, intânncias não sofrem updates.</p>
+<p>Se nós tentarmos adicionar um slot (<code>email</code> abaixo), temos a escolha de perder
+todas as instâncias ou de continuar usando a nova definição de <code>person</code>, mas os
+efeitos de redefinir uma estrutura não são determinados pelo padrão, então o melhor
+a se fazer é recompilar e rodar novamente a parte que sofreu mudança.</p>
+<pre><code class="language-lisp">(defstruct person
+       id
+       (name &quot;john doe&quot; :type string)
+       age
+       email)
+
+attempt to redefine the STRUCTURE-OBJECT class PERSON
+incompatibly with the current definition
+   [Condition of type SIMPLE-ERROR]
+
+Restarts:
+ 0: [CONTINUE] Use the new definition of PERSON, invalidating already-loaded code and instances.
+ 1: [RECKLESSLY-CONTINUE] Use the new definition of PERSON as if it were compatible, allowing old accessors to use new instances and allowing new accessors to use old instances.
+ 2: [CLOBBER-IT] (deprecated synonym for RECKLESSLY-CONTINUE)
+ 3: [RETRY] Retry SLIME REPL evaluation request.
+ 4: [*ABORT] Return to SLIME's top level.
+ 5: [ABORT] abort thread (#&lt;THREAD &quot;repl-thread&quot; RUNNING {1002A0FFA3}&gt;)
+</code></pre>
+<p>Se escolhermos reiniciar <code>0</code>, para usar a nova definição, não poderemos acessar <code>*me*</code>:</p>
+<pre><code class="language-lisp">*me*
+obsolete structure error for a structure of type PERSON
+   [Condition of type SB-PCL::OBSOLETE-STRUCTURE]
+</code></pre>
+<p>Portable Common Lisp não define maneiras de descobrir super/sub-structures,
+nem que slots uma estrutura possui.</p>
+<p>Common Lisp Object System (que veio depois da linguagem) não tem tais limitações.
+Veja a seção sobre <a href="clos.html">CLOS</a>.</p>
+<ul>
+<li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/08_.htm">structures on the hyperspec</a></li>
+<li>David B. Lamkins, <a href="http://www.communitypicks.com/r/lisp/s/17592186045679-successful-lisp-how-to-understand-and-use-common">&quot;Successful Lisp, How to Undertsand and Use Common Lisp&quot;</a>.</li>
+</ul>
+<a class="header" href="#tree" id="tree"><h2>Tree</h2></a>
+<p><code>tree-equal</code>, <code>copy-tree</code>. Elas descendem recursivamente no car e no cdr das cons cells que visitam;</p>
+<a class="header" href="#sycamore---árvores-binárias-balanceadas-puramente-funcionais" id="sycamore---árvores-binárias-balanceadas-puramente-funcionais"><h3>Sycamore - árvores-binárias balanceadas puramente funcionais</h3></a>
+<p><a href="https://github.com/ndantam/sycamore">https://github.com/ndantam/sycamore</a></p>
+<p>Features:</p>
+<ul>
+<li>Árvores-binárias balanceadas puramente funcionais velozes.</li>
+<li>Folhas são vetores simples, reduzindo a altura da árvore.</li>
+<li>Interfaces para Sets e Maps para árvores.</li>
+<li><a href="http://en.wikipedia.org/wiki/Rope_(data_structure)">Ropes</a>.</li>
+<li><a href="http://en.wikipedia.org/wiki/Pairing_heap">pairing heaps</a> puramente funcionais</li>
+<li>Filas amortizadas puramente funcionais</li>
+</ul>
+<a class="header" href="#apêndice-a---acesso-genérico-de-alists-plists-hash-tables-e-clos-slots" id="apêndice-a---acesso-genérico-de-alists-plists-hash-tables-e-clos-slots"><h2>Apêndice A - acesso genérico de alists, plists, hash-tables e CLOS slots</h2></a>
+<p>As soluções apresentadas abaixo pode lhe ajudar no começo, mas tenha em mente que elas terão
+impactos em performance e mensagens de erro serão menos explícitas.</p>
+<ul>
+<li><a href="cl21.html">CL21</a> tem um <code>getf</code> genérico (bem como outras funções genéricas),</li>
+<li><a href="https://github.com/vseloved/rutils">rutils</a> como um <code>generic-elt</code> genérico, ou <code>?</code>,</li>
+<li>a biblioteca <a href="https://github.com/AccelerationNet/access">access</a> (testada em batalha, usada pelo sistema de templating Djula) tem um generico <code>(access my-var :elt)</code> (<a href="https://lisp-journey.gitlab.io/blog/generice-consistent-access-of-data-structures-dotted-path/">blog post</a>).</li>
+</ul>
+<a class="header" href="#apêndice-b---acessando-estruturas-de-dados-aninhadas" id="apêndice-b---acessando-estruturas-de-dados-aninhadas"><h2>Apêndice B - acessando estruturas de dados aninhadas</h2></a>
+<p>As vezes trabalhamos com estruturas de dados aninhadas, e queremos uma maneira
+mais simples de acessar um elemento aninhado comparado a um intrincado &quot;getf&quot; e &quot;assoc&quot;
+etc. Além disso, quando uma chave intermediária não existe seja retornado apenas um <code>nil</code>.</p>
+<p>A biblioteca <code>access</code> mostrada acima provê isso, com <code>(accesses var key1 key2...)</code>.</p>
 
                     </main>
 
@@ -528,36 +1654,33 @@ Não se preocupe por ainda não compreendê-los. <a href="print.html#a1">↩</a>
 
         </div>
 
+        
 
-        <!-- Local fallback for Font Awesome -->
-        <script>
-            if (getComputedStyle(document.querySelector(".fa")).fontFamily !== "FontAwesome") {
-                var link = document.createElement('link');
-                link.rel = 'stylesheet';
-                link.type = 'text/css';
-                link.href = '_FontAwesome/css/font-awesome.css';
-                document.head.insertBefore(link, document.head.firstChild)
-            }
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
         </script>
-
         
-
-        
-
-        
-
-        
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                window.print();
-            })
-        </script>
-        
-
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
-
-        <!-- Custom JS script -->
         
 
     </body>
